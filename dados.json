@@ -1,16 +1,16 @@
 {
   "v": "2026.1",
-  "dataExportacao": "2026-11-12T15:25:02.637Z",
+  "dataExportacao": "2026-11-12T19:47:09.498Z",
   "jogadores": [
     {
       "id": 1794368145937,
       "nome": "Abraão",
-      "jogos": 4,
-      "vitorias": 2,
-      "ptsGanhos": 14,
-      "ptsPerdidos": 13,
-      "pontosTotais": 1080,
-      "variacaoSemana": 65,
+      "jogos": 5,
+      "vitorias": 3,
+      "ptsGanhos": 18,
+      "ptsPerdidos": 15,
+      "pontosTotais": 1110,
+      "variacaoSemana": 95,
       "status": "ativo"
     },
     {
@@ -38,12 +38,12 @@
     {
       "id": 1794368177983,
       "nome": "Gabriel",
-      "jogos": 3,
+      "jogos": 4,
       "vitorias": 2,
-      "ptsGanhos": 15,
-      "ptsPerdidos": 10,
-      "pontosTotais": 840,
-      "variacaoSemana": 70,
+      "ptsGanhos": 17,
+      "ptsPerdidos": 14,
+      "pontosTotais": 835,
+      "variacaoSemana": 65,
       "status": "ativo"
     },
     {
@@ -324,6 +324,18 @@
   ],
   "historicoJogos": [
     {
+      "idJogo": "#13",
+      "data": "12/11",
+      "vencedor": "Abraão",
+      "vencedorId": 1794368145937,
+      "ptsGanhos": 30,
+      "perdedor": "Gabriel",
+      "perdedorId": 1794368177983,
+      "ptsPerdidos": -5,
+      "placar": "4x2",
+      "isSemanaAtual": true
+    },
+    {
       "idJogo": "#12",
       "data": "12/11",
       "vencedor": "Edian",
@@ -468,6 +480,6 @@
       "isSemanaAtual": true
     }
   ],
-  "contadorJogos": 13,
+  "contadorJogos": 14,
   "semanaRef": "2026-11-09"
 }
