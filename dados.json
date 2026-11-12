@@ -1,27 +1,27 @@
 {
   "v": "2026.1",
-  "dataExportacao": "2026-11-11T14:38:51.689Z",
+  "dataExportacao": "2026-11-12T15:25:02.637Z",
   "jogadores": [
     {
       "id": 1794368145937,
       "nome": "Abraão",
-      "jogos": 3,
+      "jogos": 4,
       "vitorias": 2,
-      "ptsGanhos": 12,
-      "ptsPerdidos": 9,
-      "pontosTotais": 1085,
-      "variacaoSemana": 70,
+      "ptsGanhos": 14,
+      "ptsPerdidos": 13,
+      "pontosTotais": 1080,
+      "variacaoSemana": 65,
       "status": "ativo"
     },
     {
       "id": 1794368153255,
       "nome": "Edian",
-      "jogos": 0,
-      "vitorias": 0,
-      "ptsGanhos": 0,
-      "ptsPerdidos": 0,
-      "pontosTotais": 945,
-      "variacaoSemana": 0,
+      "jogos": 2,
+      "vitorias": 2,
+      "ptsGanhos": 8,
+      "ptsPerdidos": 4,
+      "pontosTotais": 1005,
+      "variacaoSemana": 60,
       "status": "ativo"
     },
     {
@@ -47,25 +47,25 @@
       "status": "ativo"
     },
     {
-      "id": 1794368188067,
-      "nome": "Babu",
+      "id": 1794368183847,
+      "nome": "Samira",
       "jogos": 3,
-      "vitorias": 2,
-      "ptsGanhos": 10,
-      "ptsPerdidos": 8,
-      "pontosTotais": 655,
-      "variacaoSemana": 55,
+      "vitorias": 1,
+      "ptsGanhos": 8,
+      "ptsPerdidos": 12,
+      "pontosTotais": 680,
+      "variacaoSemana": 15,
       "status": "ativo"
     },
     {
-      "id": 1794368183847,
-      "nome": "Samira",
-      "jogos": 1,
-      "vitorias": 0,
-      "ptsGanhos": 2,
-      "ptsPerdidos": 6,
-      "pontosTotais": 655,
-      "variacaoSemana": -10,
+      "id": 1794368188067,
+      "nome": "Babu",
+      "jogos": 4,
+      "vitorias": 2,
+      "ptsGanhos": 12,
+      "ptsPerdidos": 12,
+      "pontosTotais": 650,
+      "variacaoSemana": 50,
       "status": "ativo"
     },
     {
@@ -82,12 +82,12 @@
     {
       "id": 1794368210025,
       "nome": "Reginaldo",
-      "jogos": 0,
+      "jogos": 1,
       "vitorias": 0,
-      "ptsGanhos": 0,
-      "ptsPerdidos": 0,
-      "pontosTotais": 510,
-      "variacaoSemana": 0,
+      "ptsGanhos": 2,
+      "ptsPerdidos": 4,
+      "pontosTotais": 505,
+      "variacaoSemana": -5,
       "status": "ativo"
     },
     {
@@ -126,12 +126,12 @@
     {
       "id": 1794368241309,
       "nome": "Manoel",
-      "jogos": 1,
-      "vitorias": 0,
-      "ptsGanhos": 1,
-      "ptsPerdidos": 4,
-      "pontosTotais": 230,
-      "variacaoSemana": -5,
+      "jogos": 2,
+      "vitorias": 1,
+      "ptsGanhos": 5,
+      "ptsPerdidos": 6,
+      "pontosTotais": 260,
+      "variacaoSemana": 25,
       "status": "ativo"
     },
     {
@@ -324,6 +324,54 @@
   ],
   "historicoJogos": [
     {
+      "idJogo": "#12",
+      "data": "12/11",
+      "vencedor": "Edian",
+      "vencedorId": 1794368153255,
+      "ptsGanhos": 30,
+      "perdedor": "Reginaldo",
+      "perdedorId": 1794368210025,
+      "ptsPerdidos": -5,
+      "placar": "4x2",
+      "isSemanaAtual": true
+    },
+    {
+      "idJogo": "#11",
+      "data": "12/11",
+      "vencedor": "Edian",
+      "vencedorId": 1794368153255,
+      "ptsGanhos": 30,
+      "perdedor": "Abraão",
+      "perdedorId": 1794368145937,
+      "ptsPerdidos": -5,
+      "placar": "4x2",
+      "isSemanaAtual": true
+    },
+    {
+      "idJogo": "#10",
+      "data": "12/11",
+      "vencedor": "Manoel",
+      "vencedorId": 1794368241309,
+      "ptsGanhos": 30,
+      "perdedor": "Samira",
+      "perdedorId": 1794368183847,
+      "ptsPerdidos": -5,
+      "placar": "4x2",
+      "isSemanaAtual": true
+    },
+    {
+      "idJogo": "#09",
+      "data": "11/11",
+      "vencedor": "Samira",
+      "vencedorId": 1794368183847,
+      "ptsGanhos": 30,
+      "perdedor": "Babu",
+      "perdedorId": 1794368188067,
+      "ptsPerdidos": -5,
+      "placar": "4x2",
+      "isSemanaAtual": true
+    },
+    {
       "idJogo": "#08",
       "data": "11/11",
       "vencedor": "Babu",
@@ -420,6 +468,6 @@
       "isSemanaAtual": true
     }
   ],
-  "contadorJogos": 9,
+  "contadorJogos": 13,
   "semanaRef": "2026-11-09"
 }
