@@ -1,5 +1,5 @@
 // Service worker · Ranking Zona Sul. Ao alterar qualquer arquivo do app, incremente VERSION.
-const VERSION = 'zs-v12';
+const VERSION = 'zs-v13';
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png', './icons/apple-touch-icon.png', './icons/logo.png'];
 
 self.addEventListener('install', e => {

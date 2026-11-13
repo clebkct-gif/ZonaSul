@@ -66,6 +66,7 @@ th{padding:6px 4px;font-size:11px}td{padding:6px 4px;font-size:14.5px}
 .bdg{display:inline-grid;place-items:center;min-width:17px;height:17px;padding:0 5px;margin-left:6px;border-radius:99px;background:var(--red);color:#2a0b0a;font-size:10px;font-weight:800;font-style:normal;line-height:1;vertical-align:1px}.bdg[hidden]{display:none}.bdg:empty{min-width:8px;width:8px;height:8px;padding:0}
 .match.new{background:linear-gradient(90deg,#c7f36b1c,transparent);box-shadow:inset 3px 0 0 var(--lime);padding-left:9px;border-radius:8px}.tag-new{font-size:9px;font-weight:800;letter-spacing:.06em;background:var(--red);color:#2a0b0a;border-radius:6px;padding:1px 5px;margin-left:6px;vertical-align:1px}.mvr{font-size:10px;font-weight:800;margin-left:6px;white-space:nowrap}
 @media(prefers-reduced-motion:reduce){.bn-dot{animation:none}}
+.me-card{margin-bottom:6px}.me-card .row{margin:5px 0;font-size:14.5px}.me-card a.chip,a.btn{text-decoration:none;color:inherit;display:inline-block}.me-top{display:flex;justify-content:space-between;align-items:center;gap:8px}.me-top b{font-size:20px}.selos{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0}
 </style>
 </head>
 <body>
@@ -77,6 +78,7 @@ th{padding:6px 4px;font-size:11px}td{padding:6px 4px;font-size:14.5px}
 </header>
 
 <div id="newBanner" role="status" hidden></div>
+<div id="meCard"></div>
 <section class="stats" id="stats"></section>
 <nav class="tabs" aria-label="Navegação principal">
  <button class="tab active" data-view="inicio">Visão geral</button><button class="tab" data-view="ranking">Classificação<i class="bdg" id="bdgRank" hidden></i></button><button class="tab" data-view="historico">Partidas<i class="bdg" id="bdgHist" hidden></i></button><button class="tab" data-view="jogadores">Jogadores</button><button class="tab" data-view="confrontos">Confrontos</button><button class="tab" data-view="simulador">Simulador</button>
@@ -86,11 +88,11 @@ th{padding:6px 4px;font-size:11px}td{padding:6px 4px;font-size:14.5px}
  <article class="card"><div class="card-head"><h2>🏆 Top do ranking</h2><span class="muted small">Classificação atual</span></div><div id="leader"></div><div class="table-wrap"><table><thead><tr><th>#</th><th>Jogador</th><th>J</th><th>V</th><th>PTS</th></tr></thead><tbody id="topTable"></tbody></table></div></article>
  <article class="card"><div class="card-head"><h2>Últimas partidas</h2><button class="tab" data-go="historico">Ver todas →</button></div><div id="recentMatches"></div></article>
  </div></section>
-<section class="view" id="view-ranking"><article class="card"><div class="card-head"><h2>Classificação completa</h2><span class="muted small" id="rankingCount"></span></div><div class="table-wrap"><table><thead><tr><th>#</th><th>Jogador</th><th>J</th><th>V</th><th>Gg</th><th>Gp</th><th>Saldo</th><th>PTS</th><th>Sem.</th></tr></thead><tbody id="rankingTable"></tbody></table></div></article></section>
+<section class="view" id="view-ranking"><article class="card"><div class="card-head"><h2>Classificação completa</h2><span class="muted small" id="rankingCount"></span><button class="btn" data-act="share">📤 Compartilhar</button></div><div class="table-wrap"><table><thead><tr><th>#</th><th>Jogador</th><th>J</th><th>V</th><th>Gg</th><th>Gp</th><th>Saldo</th><th>PTS</th><th>Sem.</th></tr></thead><tbody id="rankingTable"></tbody></table></div></article></section>
 <section class="view" id="view-historico"><article class="card"><div class="card-head"><h2>Histórico de partidas</h2><span class="muted small" id="matchCount"></span></div><div class="form-row"><input class="field" id="historySearch" placeholder="Buscar jogador ou placar..."><select class="field" id="historyFilter"><option value="all">Todas as partidas</option><option value="semana">Somente a semana atual</option></select></div><div id="historyList"></div></article></section>
 <section class="view" id="view-jogadores"><div class="section-grid"><article class="card"><div class="card-head"><h2>Jogadores</h2><span class="muted small" id="playerCount"></span></div><div id="playerList"></div></article><article class="card"><div id="playerProfile"><div class="empty"><strong>Selecione um jogador</strong>Veja estatísticas individuais e histórico.</div></div></article></div></section>
 <section class="view" id="view-confrontos"><article class="card"><div class="card-head"><h2>Central de confrontos</h2><span class="muted small">Comparação direta</span></div><div class="form-row"><select class="field" id="h2hA"></select><select class="field" id="h2hB"></select></div><div id="h2hResult" class="empty">Selecione dois jogadores para comparar.</div></article></section>
-<section class="view" id="view-simulador"><article class="card"><div class="card-head"><h2>Simulador de resultado</h2><span class="muted small">Projeção hipotética</span></div><div class="form-row"><select class="field" id="simA" aria-label="Jogador 1"></select><select class="field" id="simB" aria-label="Jogador 2"></select></div><div class="form-row"><select class="field" id="simScore"><option value="6x0">6 × 0</option><option value="6x1">6 × 1</option><option value="6x2" selected>6 × 2</option><option value="6x3">6 × 3</option><option value="6x4">6 × 4</option><option value="6x5">6 × 5</option><option value="4x0">4 × 0</option><option value="4x1">4 × 1</option><option value="4x2">4 × 2</option><option value="4x3">4 × 3</option></select><select class="field" id="simWinner"><option value="a">Jogador 1 vence</option><option value="b">Jogador 2 vence</option></select></div><div id="simResult"></div></article></section>
+<section class="view" id="view-simulador"><article class="card"><div class="card-head"><h2>Simulador de resultado</h2><span class="muted small">Projeção hipotética</span></div><div class="form-row"><select class="field" id="simA" aria-label="Jogador 1"></select><select class="field" id="simB" aria-label="Jogador 2"></select></div><div class="form-row"><select class="field" id="simScore"><option value="6x0">6 × 0</option><option value="6x1">6 × 1</option><option value="6x2" selected>6 × 2</option><option value="6x3">6 × 3</option><option value="6x4">6 × 4</option><option value="6x5">6 × 5</option><option value="4x0">4 × 0</option><option value="4x1">4 × 1</option><option value="4x2">4 × 2</option><option value="4x3">4 × 3</option><option value="3x0">3 × 0</option><option value="3x1">3 × 1</option><option value="3x2">3 × 2</option></select><select class="field" id="simWinner"><option value="a">Jogador 1 vence</option><option value="b">Jogador 2 vence</option></select></div><div id="simResult"></div></article></section>
 </main>
 <footer class="footer">RANKING ZONA SUL TÊNIS · Dados informativos · <span id="updated">Aguardando publicação</span><div id="iosHint" hidden style="margin-top:6px">iPhone: toque em Compartilhar e depois em “Adicionar à Tela de Início” para instalar.</div></footer>
 </div>
@@ -104,8 +106,8 @@ function normalize(raw){
  if(raw && Array.isArray(raw.temporadas)) return raw;
  // Compatibilidade com o backup atual do ADM: jogadores + historicoJogos.
  if(raw && Array.isArray(raw.jogadores) && Array.isArray(raw.historicoJogos)){
-  const year = String(new Date(raw.dataExportacao || Date.now()).getFullYear());
-  return {schema:'ranking-zona-sul-publico',versao:1,publicadoEm:raw.dataExportacao||null,temporadaAtual:year,temporadas:[{id:year,nome:'Temporada '+year,status:'ativa',jogadores:raw.jogadores,historicoJogos:raw.historicoJogos,contadorJogos:raw.contadorJogos,semanaRef:raw.semanaRef}]};
+  const year = String(raw.temporada||new Date(raw.dataExportacao || Date.now()).getFullYear());
+  return {schema:'ranking-zona-sul-publico',versao:1,publicadoEm:raw.dataExportacao||null,temporadaAtual:year,temporadas:[{id:year,nome:'Temporada '+year,status:'ativa',jogadores:raw.jogadores,historicoJogos:raw.historicoJogos,contadorJogos:raw.contadorJogos,semanaRef:raw.semanaRef,regras:raw.regras,ordem:raw.ordem}]};
  }
  throw new Error('Formato de dados não reconhecido.');
 }
@@ -117,26 +119,27 @@ async function loadDataRun(force){
   if(!response.ok) throw new Error('HTTP '+response.status);
   const parsed=normalize(await response.json());
   database=parsed;updateAvail=false;
-  localStorage.setItem('zs_public_cache',JSON.stringify(parsed));
+  try{localStorage.setItem('zs_public_cache',JSON.stringify(parsed));}catch(_){}
   $('connection').textContent=navigator.onLine?'Dados atualizados':'Sem internet · última cópia';
   $('connection').previousElementSibling?.classList.add('dot');
   $('updated').textContent='Publicado em '+formatDate(parsed.publicadoEm);
   renderSeasonOptions();
  }catch(err){
-  const cached=localStorage.getItem('zs_public_cache');
+  let cached=null;try{cached=localStorage.getItem('zs_public_cache');normalize(JSON.parse(cached));}catch(_){cached=null;}
   if(cached){database=normalize(JSON.parse(cached));$('connection').textContent='Modo offline · cópia salva';$('updated').textContent='Exibindo última cópia disponível';renderSeasonOptions();}
   else{$('connection').textContent='Sem dados disponíveis';$('stats').innerHTML='<div class="empty" style="grid-column:1/-1">Não foi possível carregar dados.json. Verifique se o arquivo foi publicado no GitHub.</div>';console.error(err);}
  }
 }
 function formatDate(v){if(!v)return 'data não informada';const d=new Date(v);return isNaN(d)?String(v):d.toLocaleString('pt-BR',{dateStyle:'short',timeStyle:'short'});}
 function season(){return database?.temporadas?.find(s=>String(s.id)===String(currentSeason))||database?.temporadas?.[0]||{jogadores:[],historicoJogos:[]};}
-function players(){return (season().jogadores||[]).map(p=>({...p,jogos:num(p.jogos),vitorias:num(p.vitorias),ptsGanhos:num(p.ptsGanhos),ptsPerdidos:num(p.ptsPerdidos),pontosTotais:num(p.pontosTotais)}));}
+function players(){return (season().jogadores||[]).map(p=>({...p,jogos:num(p.jogos),vitorias:num(p.vitorias),ptsGanhos:num(p.ptsGanhos),ptsPerdidos:num(p.ptsPerdidos),pontosTotais:num(p.pontosTotais),variacaoSemana:weekStale()?0:num(p.variacaoSemana)}));}
 const idn=m=>parseInt(String(m.idJogo).replace(/\D/g,''),10)||0;
-function matches(){return [...(season().historicoJogos||[])].sort((a,b)=>idn(b)-idn(a));}
+function matches(){return (season().historicoJogos||[]).map(m=>weekStale()?{...m,isSemanaAtual:false}:m).sort((a,b)=>idn(b)-idn(a));}
 function comparePlayers(a,b){if(a.status==='abandonou'&&b.status!=='abandonou')return 1;if(a.status!=='abandonou'&&b.status==='abandonou')return -1;if(b.pontosTotais!==a.pontosTotais)return b.pontosTotais-a.pontosTotais;const saldoA=a.ptsGanhos-a.ptsPerdidos,saldoB=b.ptsGanhos-b.ptsPerdidos;if(saldoB!==saldoA)return saldoB-saldoA;if(b.vitorias!==a.vitorias)return b.vitorias-a.vitorias;return a.nome.localeCompare(b.nome,'pt-BR',{sensitivity:'base'});}
-function sortedPlayers(){return players().sort(comparePlayers);}
+function sortedPlayers(){const p=players(),o=season().ordem;if(Array.isArray(o)&&o.length){const m=new Map(o.map((id,i)=>[String(id),i]));if(p.every(x=>m.has(String(x.id))))return p.sort((a,b)=>m.get(String(a.id))-m.get(String(b.id)));}return p.sort(comparePlayers);}
 function scoreGames(m){const parts=String(m.placar||'').split(/[x×]/i).map(Number);return parts.length===2&&parts.every(Number.isFinite)?parts[0]+parts[1]:0;}
-function scorePoints(score){const [winnerGames]=String(score).split('x').map(Number);return winnerGames===6?{winner:50,loser:-10}:{winner:30,loser:-5};}
+const REGRAS_PADRAO={3:{vencedor:25,perdedor:-5},4:{vencedor:30,perdedor:-5},6:{vencedor:50,perdedor:-10}};
+function scorePoints(score){const g=Number(String(score).split('x')[0]),R=season().regras||{},r=R[g]||REGRAS_PADRAO[g]||REGRAS_PADRAO[4];return {winner:num(r.vencedor),loser:num(r.perdedor)};}
 function renderSeasonOptions(){
  const list=database.temporadas||[];currentSeason=currentSeason||database.temporadaAtual||list[0]?.id;
  $('seasonSelect').innerHTML=list.map(s=>`<option value="${esc(s.id)}">${esc(s.nome||s.id)}</option>`).join('');
@@ -157,7 +160,7 @@ function computeDiff(){
  sortedPlayers().forEach((p,i)=>{const op=old.pos&&old.pos[p.id],opt=old.pts&&old.pts[p.id];if(op==null)return;const dp=op-(i+1),dpt=p.pontosTotais-opt;if(dp||dpt)diff.moves.set(String(p.id),{dp,dpt});});
  unseenM=diff.matches.size>0;unseenR=diff.moves.size>0;
 }
-function mv(id){const m=diff.moves.get(String(id));if(!m)return '';const t=(m.dp>0?'▲'+m.dp:m.dp<0?'▼'+(-m.dp):'=')+(m.dpt?' '+(m.dpt>0?'+':'')+m.dpt:'');return `<span class="mvr ${m.dp>0?'up':m.dp<0?'down':'muted'}">${t}</span>`;}
+function mv0(id){const m=diff.moves.get(String(id));if(!m)return '';const t=(m.dp>0?'▲'+m.dp:m.dp<0?'▼'+(-m.dp):'=')+(m.dpt?' '+(m.dpt>0?'+':'')+m.dpt:'');return `<span class="mvr ${m.dp>0?'up':m.dp<0?'down':'muted'}">${t}</span>`;}
 function ackMatches(){if(!unseenM)return;unseenM=false;saveSeen(s=>({keys:s.keys}));renderBanner();}
 function ackRanking(){if(!unseenR)return;unseenR=false;saveSeen(s=>({pos:s.pos,pts:s.pts}));renderBanner();}
 function renderBanner(){
@@ -172,7 +175,7 @@ async function checkRemote(){try{const r=await fetch(DATA_URL+'?t='+Date.now(),{
 setInterval(()=>{if(!document.hidden)checkRemote();},300000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkRemote();});
 function playerName(id){return players().find(p=>String(p.id)===String(id))?.nome||'Jogador';}
-function renderAll(){computeDiff();renderStats();renderHome();renderRanking();renderHistory();renderPlayers();renderSelects();renderH2H();simulate();renderBanner();}
+function renderAll(){computeDiff();renderStats();renderMe();renderHome();renderRanking();renderHistory();renderPlayers();renderSelects();renderH2H();simulate();renderBanner();}
 function renderStats(){
  const p=players(),m=matches(),active=p.filter(x=>x.status!=='abandonou').length, games=m.length;
  const totalWins=p.reduce((s,x)=>s+x.vitorias,0);
@@ -186,7 +189,7 @@ function renderHome(){
 }
 function renderRanking(){
  const p=sortedPlayers();$('rankingCount').textContent=p.length+' jogadores';
- let activePos=0;$('rankingTable').innerHTML=p.map(x=>{const pos=x.status==='abandonou'?'—':++activePos;return `<tr><td class="rank-num">${pos}</td><td><button class="player-link" data-player="${x.id}">${esc(x.nome)}</button>${mv(x.id)}${x.status==='abandonou'?' <span class="muted small">· inativo</span>':''}</td><td>${x.jogos}</td><td>${x.vitorias}</td><td>${x.ptsGanhos}</td><td>${x.ptsPerdidos}</td><td class="${x.ptsGanhos-x.ptsPerdidos>=0?'positive':'negative'}">${x.ptsGanhos-x.ptsPerdidos>0?'+':''}${x.ptsGanhos-x.ptsPerdidos}</td><td><b>${x.pontosTotais}</b></td><td class="${num(x.variacaoSemana)>0?'up':num(x.variacaoSemana)<0?'down':'muted'}">${num(x.variacaoSemana)>0?'▲ '+num(x.variacaoSemana):num(x.variacaoSemana)<0?'▼ '+Math.abs(num(x.variacaoSemana)):'–'}</td></tr>`}).join('')||'<tr><td colspan="9" class="muted">Sem dados.</td></tr>';
+ let activePos=0;$('rankingTable').innerHTML=p.map(x=>{const pos=x.status==='abandonou'?'—':++activePos;return `<tr><td class="rank-num">${pos}${arrow(x,pos)}</td><td><button class="player-link" data-player="${x.id}">${esc(x.nome)}</button>${mv(x.id)}${x.status==='abandonou'?' <span class="muted small">· inativo</span>':''}</td><td>${x.jogos}</td><td>${x.vitorias}</td><td>${x.ptsGanhos}</td><td>${x.ptsPerdidos}</td><td class="${x.ptsGanhos-x.ptsPerdidos>=0?'positive':'negative'}">${x.ptsGanhos-x.ptsPerdidos>0?'+':''}${x.ptsGanhos-x.ptsPerdidos}</td><td><b>${x.pontosTotais}</b></td><td class="${num(x.variacaoSemana)>0?'up':num(x.variacaoSemana)<0?'down':'muted'}">${num(x.variacaoSemana)>0?'▲ '+num(x.variacaoSemana):num(x.variacaoSemana)<0?'▼ '+Math.abs(num(x.variacaoSemana)):'–'}</td></tr>`}).join('')||'<tr><td colspan="9" class="muted">Sem dados.</td></tr>';
 }
 function matchHTML(m){const isNew=diff.matches.has(mkey(m));return `<div class="match${isNew?' new':''}"><span class="match-id">${esc(m.idJogo||'—')}</span><div class="match-names"><b>${esc(m.vencedor)}</b> venceu ${esc(m.perdedor)}${isNew?'<span class="tag-new">NOVO</span>':''}<div class="muted small">${esc(m.data||'Data não informada')}</div></div><span class="score">${esc(m.placar||'—')}</span></div>`;}
 function renderHistory(){
@@ -203,12 +206,12 @@ function renderPlayers(){
 function renderProfile(id){
  selectedPlayerId=id;const p=players().find(x=>String(x.id)===String(id));if(!p)return;
  const rate=p.jogos?Math.round(p.vitorias/p.jogos*100):0,history=matches().filter(m=>String(m.vencedorId)===String(id)||String(m.perdedorId)===String(id));
- $('playerProfile').innerHTML=`<div class="profile-head"><div class="avatar">${esc(p.nome.slice(0,1).toUpperCase())}</div><div><div class="eyebrow">Perfil do atleta</div><h2>${esc(p.nome)}</h2><span class="muted small">${p.status==='abandonou'?'Inativo':'Ativo'}</span></div></div><div class="metric-grid"><div class="metric"><span>Pontos</span><b>${p.pontosTotais}</b></div><div class="metric"><span>Vitórias</span><b>${p.vitorias}</b></div><div class="metric"><span>Partidas</span><b>${p.jogos}</b></div><div class="metric"><span>Aproveitamento</span><b>${rate}%</b></div><div class="metric"><span>Games ganhos</span><b>${p.ptsGanhos}</b></div><div class="metric"><span>Games perdidos</span><b>${p.ptsPerdidos}</b></div></div><h2 style="margin:20px 0 8px">Últimos jogos</h2>${history.slice(0,8).map(matchHTML).join('')||'<div class="muted small">Sem partidas no histórico.</div>'}`;
+ $('playerProfile').innerHTML=`<div class="profile-head"><div class="avatar">${esc(p.nome.slice(0,1).toUpperCase())}</div><div><div class="eyebrow">Perfil do atleta</div><h2>${esc(p.nome)}</h2><span class="muted small">${p.status==='abandonou'?'Inativo':'Ativo'}</span></div></div><div class="metric-grid"><div class="metric"><span>Pontos</span><b>${p.pontosTotais}</b></div><div class="metric"><span>Vitórias</span><b>${p.vitorias}</b></div><div class="metric"><span>Partidas</span><b>${p.jogos}</b></div><div class="metric"><span>Aproveitamento</span><b>${rate}%</b></div><div class="metric"><span>Games ganhos</span><b>${p.ptsGanhos}</b></div><div class="metric"><span>Games perdidos</span><b>${p.ptsPerdidos}</b></div></div>${extraProfile(id,p)}<h2 style="margin:20px 0 8px">Últimos jogos</h2>${history.slice(0,8).map(matchHTML).join('')||'<div class="muted small">Sem partidas no histórico.</div>'}`;
 }
 function renderSelects(){
  const p=players();const opts=p.map(x=>`<option value="${x.id}">${esc(x.nome)}</option>`).join('');
  ['h2hA','h2hB','simA','simB'].forEach(id=>{const el=$(id),old=el.value;el.innerHTML=opts; if([...el.options].some(o=>o.value===old))el.value=old;});
- if(p.length>1){$('h2hB').selectedIndex=1;$('simB').selectedIndex=1;}
+ ['h2h','sim'].forEach(k=>{const a=$(k+'A'),b=$(k+'B');if(p.length>1&&(!b.value||b.value===a.value))b.selectedIndex=a.selectedIndex===0?1:0;});
 }
 function renderH2H(){
  const a=$('h2hA').value,b=$('h2hB').value;if(!a||!b||a===b){$('h2hResult').textContent='Selecione dois jogadores diferentes.';return;}
@@ -245,10 +248,10 @@ function simulate(){
  <h2 style="font-size:15px;margin:10px 0 4px">Descem (${dn.length})</h2><div class="chips">${dn.map(r=>chip(r,'d')).join('')||'<span class="muted small">Ninguém.</span>'}</div>
  <h2 style="font-size:15px;margin:10px 0 4px">Mantêm a posição (${same.length})</h2><div class="chips">${same.length>8?'<span class="muted small">'+same.length+' jogadores sem alteração (veja a tabela completa abaixo).</span>':same.map(r=>`<span class="chip">${esc(r.p.nome)} · ${ord(r.n)}</span>`).join('')}</div>
  <div class="card-head" style="margin-top:18px"><h2>Classificação projetada completa</h2><span class="muted small">${rows.length} jogadores</span></div><div class="table-wrap"><table><thead><tr><th>Nova</th><th>Jogador</th><th>Atual</th><th>PTS</th><th>Mov.</th></tr></thead><tbody>${rows.map(r=>`<tr class="${[key(w),key(l)].includes(key(r.p.id))?'hl':r.n!==r.o?'chg':''}"><td class="rank-num">${r.inact?'—':r.n+'º'}</td><td>${esc(r.p.nome)}</td><td class="muted">${r.inact?'—':r.o+'º'}</td><td><b>${r.p.pontosTotais}</b></td><td>${mvTxt(r)}</td></tr>`).join('')}</tbody></table></div>
- <p class="notice">Regra de pontos: vitória por 4 games = +30 / −5; por 6 games = +50 / −10. Critério de ordenação: pontos, depois saldo de games, vitórias e nome (o mesmo usado na classificação oficial exibida aqui).</p>`;
+ <p class="notice">Regra de pontos: vitória por 3 games = +25 / −5; por 4 games = +30 / −5; por 6 games = +50 / −10. Critério de ordenação: pontos, depois saldo de games, vitórias e nome (o mesmo usado na classificação oficial exibida aqui).</p>`;
 }
 document.addEventListener('click',e=>{
- const act=e.target.closest('[data-act]');if(act){const a=act.dataset.act;if(a==='reload')loadData(true);else if(a==='dismiss'){ackMatches();ackRanking();}else if(a==='see')document.querySelector(`[data-view="${diff.matches.size&&unseenM?'historico':'ranking'}"]`).click();}
+ const act=e.target.closest('[data-act]');if(act){const a=act.dataset.act;if(a==='reload'){if(appUpd)location.reload();else loadData(true);}else if(a==='share')shareRanking();else if(a==='me-reset')setMe('');else if(a==='dismiss'){ackMatches();ackRanking();}else if(a==='see')document.querySelector(`[data-view="${diff.matches.size&&unseenM?'historico':'ranking'}"]`).click();}
  const tab=e.target.closest('[data-view]');if(tab){if(tab.dataset.view==='historico')ackMatches();if(tab.dataset.view==='ranking')ackRanking();document.querySelectorAll('.tab[data-view]').forEach(x=>x.classList.toggle('active',x===tab));document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id==='view-'+tab.dataset.view));}
  const go=e.target.closest('[data-go]');if(go)document.querySelector(`[data-view="${go.dataset.go}"]`).click();
  const pl=e.target.closest('[data-player]');if(pl){document.querySelector('[data-view="jogadores"]').click();renderProfile(pl.dataset.player);}
@@ -268,7 +271,54 @@ let deferredInstall;window.addEventListener('beforeinstallprompt',e=>{e.preventD
 $('install').addEventListener('click',async()=>{if(!deferredInstall)return;deferredInstall.prompt();await deferredInstall.userChoice;deferredInstall=null;$('install').hidden=true;});
 window.addEventListener('appinstalled',()=>{$('install').hidden=true;});
 if(/iphone|ipad|ipod/i.test(navigator.userAgent)&&!navigator.standalone)$('iosHint').hidden=false;
-if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(console.error));
+if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').then(r=>{r.addEventListener('updatefound',()=>{const w=r.installing;if(w)w.addEventListener('statechange',()=>{if(w.state==='installed'&&navigator.serviceWorker.controller){appUpd=updateAvail=true;renderBanner();}});});}).catch(console.error));
+// ===== NOVOS RECURSOS (v13) =====
+let appUpd=false;
+function mondayISO(d=new Date()){const x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()-((x.getDay()+6)%7));return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0');}
+function weekStale(){const r=season().semanaRef;return !!r&&r<mondayISO();}
+const ME_KEY='zs_me';
+function myId(){try{return localStorage.getItem(ME_KEY)||'';}catch(_){return '';}}
+function setMe(v){try{v?localStorage.setItem(ME_KEY,v):localStorage.removeItem(ME_KEY);}catch(_){}renderAll();}
+document.addEventListener('change',e=>{if(e.target.id==='meSel')setMe(e.target.value);});
+function mv(id){return (String(id)===myId()?' ⭐':'')+mv0(id);}
+function wa(nome){return 'https://wa.me/?text='+encodeURIComponent('Fala, '+nome+'! Bora marcar nosso jogo do Ranking Zona Sul? 🎾');}
+function arrow(x,pos){if(x.posAnt==null||pos==='—')return '';const d=x.posAnt-pos;return d?`<small class="${d>0?'up':'down'}" style="margin-left:3px">${d>0?'▲':'▼'}${Math.abs(d)}</small>`:'';}
+function climbTips(me,pend){const out=[],r0=sortedPlayers().findIndex(x=>String(x.id)===String(me.id))+1;
+ [3,4,6].forEach(g=>{let best=r0,vs=null;pend.forEach(o=>{const n=project(me.id,o.id,g+'x'+Math.max(0,g-2)).findIndex(x=>String(x.id)===String(me.id))+1;if(n<best){best=n;vs=o.nome;}});if(vs)out.push(`${g} games: ${best}º (contra ${esc(vs)})`);});return out;}
+function renderMe(){
+ const el=$('meCard');if(!el)return;const ps=sortedPlayers(),act=ps.filter(x=>x.status!=='abandonou'),id=myId(),me=ps.find(x=>String(x.id)===id);
+ if(!me){el.innerHTML=`<div class="card me-card"><b>Quem é você?</b><select id="meSel" class="field" style="margin-top:6px"><option value="">Escolha seu nome para ver seu painel…</option>${act.map(x=>`<option value="${x.id}">${esc(x.nome)}</option>`).join('')}</select></div>`;return;}
+ const i=act.findIndex(x=>String(x.id)===id);
+ if(i<0){el.innerHTML=`<div class="card me-card"><div class="me-top"><b>${esc(me.nome)}</b><button class="btn" data-act="me-reset">Trocar</button></div><div class="row muted">Jogador inativo.</div></div>`;return;}
+ const up=act[i-1],dn=act[i+1],wk=matches().filter(m=>m.isSemanaAtual&&(String(m.vencedorId)===id||String(m.perdedorId)===id));
+ const played=new Set(wk.map(m=>String(m.vencedorId)===id?String(m.perdedorId):String(m.vencedorId)));
+ const pend=act.map((x,k)=>({x,d:Math.abs(k-i)})).filter(o=>o.x!==me&&!played.has(String(o.x.id))).sort((a,b)=>a.d-b.d).map(o=>o.x);
+ const tips=climbTips(me,pend);
+ el.innerHTML=`<div class="card me-card"><div class="me-top"><div><span class="muted small">Seu painel</span><br><b>${esc(me.nome)}</b> · ${i+1}º · ${me.pontosTotais} pts</div><button class="btn" data-act="me-reset">Trocar</button></div>
+ ${up?`<div class="row">⬆ ${up.pontosTotais-me.pontosTotais} pts atrás de <b>${esc(up.nome)}</b> (${i}º)</div>`:'<div class="row">🥇 Você lidera o ranking!</div>'}
+ ${dn?`<div class="row">⬇ ${me.pontosTotais-dn.pontosTotais} pts à frente de <b>${esc(dn.nome)}</b></div>`:''}
+ ${tips.length?`<div class="row">🚀 Vencendo: ${tips.join(' · ')}</div>`:''}
+ <div class="row muted small">${pend.length?'Ainda não jogou esta semana com (toque para desafiar):':'Você já jogou com todos nesta semana 🎉'}</div>
+ <div class="chips">${pend.slice(0,10).map(x=>`<a class="chip" href="${wa(x.nome)}" target="_blank" rel="noopener">${esc(x.nome)} 🎾</a>`).join('')}${pend.length>10?`<span class="muted small">+${pend.length-10}</span>`:''}</div></div>`;
+}
+function extraProfile(id,p){
+ const sid=String(id),hist=matches().filter(m=>String(m.vencedorId)===sid||String(m.perdedorId)===sid).reverse();
+ let seq=0,best=0;const h2={},forma=[];
+ hist.forEach(m=>{const w=String(m.vencedorId)===sid,op=String(w?m.perdedorId:m.vencedorId);seq=w?seq+1:0;best=Math.max(best,seq);forma.push(w);(h2[op]=h2[op]||{v:0,d:0})[w?'v':'d']++;});
+ const ativos=sortedPlayers().filter(x=>x.status!=='abandonou'),outros=ativos.filter(x=>String(x.id)!==sid),lider=ativos[0],selos=[];
+ if(hist.length)selos.push('🎯 Estreou');if(hist.length>=10)selos.push('🔟 10 jogos');if(best>=3)selos.push('🔥 '+best+' seguidas');
+ if(hist.length>=3&&hist.every(m=>String(m.vencedorId)===sid))selos.push('🧱 Invicto');
+ if(lider&&String(lider.id)===sid&&p.jogos>0)selos.push('🥇 Líder');
+ if(outros.length&&outros.every(x=>h2[String(x.id)]))selos.push('🤝 Enfrentou todos');
+ const conf=Object.keys(h2).map(k=>`<div class="muted small">${esc(playerName(k))}: ${h2[k].v}V – ${h2[k].d}D</div>`).join('');
+ return `<h2 style="margin:16px 0 6px">Forma e conquistas</h2><div class="small">Últimos 5: <span style="letter-spacing:3px">${forma.slice(-5).map(v=>v?'🟢':'🔴').join('')||'—'}</span> · Sequência: <b>${seq}</b> · Melhor: <b>${best}</b></div><div class="selos">${selos.map(x=>`<span class="chip">${x}</span>`).join('')||'<span class="muted small">Jogue para desbloquear conquistas.</span>'}</div>${conf?'<h2 style="margin:12px 0 6px">Confrontos</h2>'+conf:''}<p><a class="btn" href="${wa(p.nome)}" target="_blank" rel="noopener">🎾 Desafiar ${esc(p.nome)}</a></p>`;
+}
+async function shareRanking(){
+ const ps=sortedPlayers().filter(x=>x.status!=='abandonou').slice(0,15);
+ const txt='🎾 Ranking Zona Sul — '+new Date().toLocaleDateString('pt-BR')+'\n'+ps.map((x,i)=>`${i+1}º ${x.nome} — ${x.pontosTotais} pts`).join('\n');
+ try{if(navigator.share)await navigator.share({text:txt});else{await navigator.clipboard.writeText(txt);alert('Classificação copiada!');}}catch(_){}
+}
+
 loadData();
 </script>
 </body></html>
