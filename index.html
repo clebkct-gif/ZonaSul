@@ -68,6 +68,7 @@ th{padding:6px 4px;font-size:11px}td{padding:6px 4px;font-size:14.5px}
 @media(prefers-reduced-motion:reduce){.bn-dot{animation:none}}
 .me-card{margin-bottom:6px}.me-card .row{margin:5px 0;font-size:14.5px}.me-card a.chip,a.btn{text-decoration:none;color:inherit;display:inline-block}.me-top{display:flex;justify-content:space-between;align-items:center;gap:8px}.me-top b{font-size:20px}.selos{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0}
 #view-ranking .table-wrap td:nth-child(2),#view-ranking .table-wrap th:nth-child(2){position:sticky;left:0;z-index:1;background:var(--panel)}.me-row td{background:rgba(74,222,128,.12)!important}.hl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.mes-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)}
+.pl-panel{position:relative;margin:4px 0 12px;padding:12px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.04)}.pl-x{position:sticky;top:6px;float:right;z-index:2;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:inherit;font-size:16px;cursor:pointer}.pl-item .match:hover{filter:brightness(1.08)}
 </style>
 </head>
 <body>
@@ -92,7 +93,7 @@ th{padding:6px 4px;font-size:11px}td{padding:6px 4px;font-size:14.5px}
  </div></section>
 <section class="view" id="view-ranking"><article class="card"><div class="card-head"><h2>Classificação completa</h2><span class="muted small" id="rankingCount"></span><button class="btn" data-act="share">📤 Compartilhar</button></div><div class="table-wrap"><table><thead><tr><th>#</th><th>Jogador</th><th>J</th><th>V</th><th>Gg</th><th>Gp</th><th>Saldo</th><th>PTS</th><th>Sem.</th></tr></thead><tbody id="rankingTable"></tbody></table></div></article></section>
 <section class="view" id="view-historico"><article class="card"><div class="card-head"><h2>Histórico de partidas</h2><span class="muted small" id="matchCount"></span></div><div class="form-row"><input class="field" id="historySearch" placeholder="Buscar jogador ou placar..."><select class="field" id="historyFilter"><option value="all">Todas as partidas</option><option value="semana">Somente a semana atual</option></select></div><div id="historyList"></div></article></section>
-<section class="view" id="view-jogadores"><div class="section-grid"><article class="card"><div class="card-head"><h2>Jogadores</h2><span class="muted small" id="playerCount"></span></div><div id="playerList"></div></article><article class="card"><div id="playerProfile"><div class="empty"><strong>Selecione um jogador</strong>Veja estatísticas individuais e histórico.</div></div></article></div></section>
+<section class="view" id="view-jogadores"><div class="section-grid"><article class="card"><div class="card-head"><h2>Jogadores</h2><span class="muted small" id="playerCount"></span></div><div class="muted small" style="margin:0 0 8px">Toque em um jogador para expandir as informações dele logo abaixo. Dá para abrir vários e fechar no ✕.</div><div id="playerList"></div></article></div></section>
 <section class="view" id="view-confrontos"><article class="card"><div class="card-head"><h2>Central de confrontos</h2><span class="muted small">Comparação direta</span></div><div class="form-row"><select class="field" id="h2hA"></select><select class="field" id="h2hB"></select></div><div id="h2hResult" class="empty">Selecione dois jogadores para comparar.</div></article></section>
 <section class="view" id="view-simulador"><article class="card"><div class="card-head"><h2>Simulador de resultado</h2><span class="muted small">Projeção hipotética</span></div><div class="form-row"><select class="field" id="simA" aria-label="Jogador 1"></select><select class="field" id="simB" aria-label="Jogador 2"></select></div><div class="form-row"><select class="field" id="simScore"><option value="6x0">6 × 0</option><option value="6x1">6 × 1</option><option value="6x2" selected>6 × 2</option><option value="6x3">6 × 3</option><option value="6x4">6 × 4</option><option value="6x5">6 × 5</option><option value="4x0">4 × 0</option><option value="4x1">4 × 1</option><option value="4x2">4 × 2</option><option value="4x3">4 × 3</option><option value="3x0">3 × 0</option><option value="3x1">3 × 1</option><option value="3x2">3 × 2</option></select><select class="field" id="simWinner"><option value="a">Jogador 1 vence</option><option value="b">Jogador 2 vence</option></select></div><div id="simResult"></div></article></section>
 </main>
@@ -202,13 +203,12 @@ function renderHistory(){
 }
 function renderPlayers(){
  const p=sortedPlayers();$('playerCount').textContent=p.length+' cadastrados';
- $('playerList').innerHTML=p.map(x=>`<div class="match"><span class="avatar" style="width:36px;height:36px;border-radius:12px;font-size:14px">${esc((x.nome||'?').slice(0,1).toUpperCase())}</span><div><button class="player-link" data-player="${x.id}">${esc(x.nome)}</button>${mv(x.id)}<div class="muted small">${x.jogos} partidas · ${x.vitorias} vitórias</div></div><b style="margin-left:auto;color:var(--lime)">${x.pontosTotais} pts</b></div>`).join('')||'<div class="empty">Sem jogadores cadastrados.</div>';
- if(selectedPlayerId && p.some(x=>String(x.id)===String(selectedPlayerId))) renderProfile(selectedPlayerId);
+ $('playerList').innerHTML=p.map(x=>`<div class="pl-item" data-pid="${x.id}"><div class="match" data-player="${x.id}" style="cursor:pointer"><span class="avatar" style="width:36px;height:36px;border-radius:12px;font-size:14px">${esc((x.nome||'?').slice(0,1).toUpperCase())}</span><div><button class="player-link" data-player="${x.id}">${esc(x.nome)}</button>${mv(x.id)}<div class="muted small">${x.jogos} partidas · ${x.vitorias} vitórias</div></div><b style="margin-left:auto;color:var(--lime)">${x.pontosTotais} pts</b></div><div class="pl-detail">${openProfiles.has(String(x.id))?detailHTML(x.id):''}</div></div>`).join('')||'<div class="empty">Sem jogadores cadastrados.</div>';
 }
-function renderProfile(id){
- selectedPlayerId=id;const p=players().find(x=>String(x.id)===String(id));if(!p)return;
+function profileHTML(id){
+ const p=players().find(x=>String(x.id)===String(id));if(!p)return;
  const rate=p.jogos?Math.round(p.vitorias/p.jogos*100):0,history=matches().filter(m=>String(m.vencedorId)===String(id)||String(m.perdedorId)===String(id));
- $('playerProfile').innerHTML=`<div class="profile-head"><div class="avatar">${esc(p.nome.slice(0,1).toUpperCase())}</div><div><div class="eyebrow">Perfil do atleta</div><h2>${esc(p.nome)}</h2><span class="muted small">${p.status==='abandonou'?'Inativo':'Ativo'}</span></div></div><div class="metric-grid"><div class="metric"><span>Pontos</span><b>${p.pontosTotais}</b></div><div class="metric"><span>Vitórias</span><b>${p.vitorias}</b></div><div class="metric"><span>Partidas</span><b>${p.jogos}</b></div><div class="metric"><span>Aproveitamento</span><b>${rate}%</b></div><div class="metric"><span>Games ganhos</span><b>${p.ptsGanhos}</b></div><div class="metric"><span>Games perdidos</span><b>${p.ptsPerdidos}</b></div></div>${extraProfile(id,p)}<h2 style="margin:20px 0 8px">Últimos jogos</h2>${history.slice(0,8).map(matchHTML).join('')||'<div class="muted small">Sem partidas no histórico.</div>'}`;
+ return `<div class="profile-head"><div class="avatar">${esc(p.nome.slice(0,1).toUpperCase())}</div><div><div class="eyebrow">Perfil do atleta</div><h2>${esc(p.nome)}</h2><span class="muted small">${p.status==='abandonou'?'Inativo':'Ativo'}</span></div></div><div class="metric-grid"><div class="metric"><span>Pontos</span><b>${p.pontosTotais}</b></div><div class="metric"><span>Vitórias</span><b>${p.vitorias}</b></div><div class="metric"><span>Partidas</span><b>${p.jogos}</b></div><div class="metric"><span>Aproveitamento</span><b>${rate}%</b></div><div class="metric"><span>Games ganhos</span><b>${p.ptsGanhos}</b></div><div class="metric"><span>Games perdidos</span><b>${p.ptsPerdidos}</b></div></div>${extraProfile(id,p)}<h2 style="margin:20px 0 8px">Últimos jogos</h2>${history.slice(0,8).map(matchHTML).join('')||'<div class="muted small">Sem partidas no histórico.</div>'}`;
 }
 function renderSelects(){
  const p=players();const opts=p.map(x=>`<option value="${x.id}">${esc(x.nome)}</option>`).join('');
@@ -256,9 +256,9 @@ document.addEventListener('click',e=>{
  const act=e.target.closest('[data-act]');if(act){const a=act.dataset.act;if(a==='reload'){if(appUpd)location.reload();else loadData(true);}else if(a==='share')shareRanking();else if(a==='me-reset')setMe('');else if(a==='dismiss'){ackMatches();ackRanking();}else if(a==='see')document.querySelector(`[data-view="${diff.matches.size&&unseenM?'historico':'ranking'}"]`).click();}
  const tab=e.target.closest('[data-view]');if(tab){if(tab.dataset.view==='historico')ackMatches();if(tab.dataset.view==='ranking')ackRanking();document.querySelectorAll('.tab[data-view]').forEach(x=>x.classList.toggle('active',x===tab));document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id==='view-'+tab.dataset.view));}
  const go=e.target.closest('[data-go]');if(go)document.querySelector(`[data-view="${go.dataset.go}"]`).click();
- const pl=e.target.closest('[data-player]');if(pl){document.querySelector('[data-view="jogadores"]').click();renderProfile(pl.dataset.player);}
+ const pl=e.target.closest('[data-player]');if(pl){pl.closest('#playerList')?toggleProfile(pl.dataset.player):abrirPerfil(pl.dataset.player);}
 });
-$('seasonSelect').addEventListener('change',e=>{currentSeason=e.target.value;selectedPlayerId=null;renderAll();});
+$('seasonSelect').addEventListener('change',e=>{currentSeason=e.target.value;selectedPlayerId=null;openProfiles.clear();renderAll();});
 $('refresh').addEventListener('click',()=>loadData(true));
 (()=>{const el=document.documentElement,req=el.requestFullscreen||el.webkitRequestFullscreen,ex=document.exitFullscreen||document.webkitExitFullscreen;
  if(!req){$('fsBtn').hidden=true;return;}
@@ -385,6 +385,27 @@ function posChartHTML(sid){
  const xy=hist.map((v,k)=>[P+k*(W-2*P)/(hist.length-1),P+(v-mn)/r*(H-2*P)]);
  return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;max-width:420px;display:block" role="img" aria-label="Evolução da posição no ranking"><polyline fill="none" style="stroke:var(--accent,#4ade80)" stroke-width="2.5" stroke-linejoin="round" points="${xy.map(a=>a[0].toFixed(1)+','+a[1].toFixed(1)).join(' ')}"/>${xy.map((a,k)=>`<circle cx="${a[0].toFixed(1)}" cy="${a[1].toFixed(1)}" r="3" style="fill:var(--accent,#4ade80)"/><text x="${a[0].toFixed(1)}" y="${Math.max(8,a[1]-6).toFixed(1)}" font-size="9" text-anchor="middle" fill="currentColor">${hist[k]}º</text>`).join('')}</svg><div class="muted small">Posição ao fim de cada semana (a última é a atual). Quanto mais alto, melhor.</div>`;
 }
+
+// ===== PERFIL EXPANSÍVEL NA LISTA (v16) =====
+const openProfiles=new Set();
+function detailHTML(id){return `<div class="pl-panel"><button class="pl-x" data-close-profile="${id}" aria-label="Fechar informações">✕</button>${profileHTML(id)}</div>`;}
+function pItem(id){return document.querySelector('.pl-item[data-pid="'+String(id)+'"]');}
+function toggleProfile(id){
+ id=String(id);const it=pItem(id);if(!it)return;
+ if(openProfiles.has(id)){fecharPerfil(id);return;}
+ openProfiles.add(id);it.querySelector('.pl-detail').innerHTML=detailHTML(id);
+ if(it.getBoundingClientRect().top>innerHeight*0.55)it.scrollIntoView({block:'start',behavior:'smooth'});
+}
+function fecharPerfil(id){
+ id=String(id);openProfiles.delete(id);const it=pItem(id);if(!it)return;
+ it.querySelector('.pl-detail').innerHTML='';
+ if(it.getBoundingClientRect().top<0)it.scrollIntoView({block:'start'});
+}
+function abrirPerfil(id){
+ id=String(id);openProfiles.add(id);document.querySelector('[data-view="jogadores"]').click();renderPlayers();
+ const it=pItem(id);if(it)it.scrollIntoView({block:'start'});
+}
+document.addEventListener('click',e=>{const c=e.target.closest('[data-close-profile]');if(c)fecharPerfil(c.dataset.closeProfile);});
 
 loadData();
 </script>
