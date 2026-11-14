@@ -109,7 +109,7 @@ function normalize(raw){
  // Compatibilidade com o backup atual do ADM: jogadores + historicoJogos.
  if(raw && Array.isArray(raw.jogadores) && Array.isArray(raw.historicoJogos)){
   const year = String(raw.temporada||new Date(raw.dataExportacao || Date.now()).getFullYear());
-  return {schema:'ranking-zona-sul-publico',versao:1,publicadoEm:raw.dataExportacao||null,temporadaAtual:year,temporadas:[{id:year,nome:'Temporada '+year,status:'ativa',jogadores:raw.jogadores,historicoJogos:raw.historicoJogos,contadorJogos:raw.contadorJogos,semanaRef:raw.semanaRef,regras:raw.regras,ordem:raw.ordem}]};
+  return {schema:'ranking-zona-sul-publico',versao:1,publicadoEm:raw.dataExportacao||null,temporadaAtual:year,temporadas:[{id:year,nome:'Temporada '+year,status:'ativa',jogadores:raw.jogadores,historicoJogos:raw.historicoJogos,contadorJogos:raw.contadorJogos,semanaRef:raw.semanaRef,regras:raw.regras,ordem:raw.ordem,hall:raw.hallDaFama,posHist:raw.historicoPosicoes}]};
  }
  throw new Error('Formato de dados não reconhecido.');
 }
@@ -313,7 +313,7 @@ function extraProfile(id,p){
  if(lider&&String(lider.id)===sid&&p.jogos>0)selos.push('🥇 Líder');
  if(outros.length&&outros.every(x=>h2[String(x.id)]))selos.push('🤝 Enfrentou todos');
  const conf=Object.keys(h2).map(k=>`<div class="muted small">${esc(playerName(k))}: ${h2[k].v}V – ${h2[k].d}D</div>`).join('');
- return `<h2 style="margin:16px 0 6px">Evolução de pontos</h2>${sparkHTML(sid,p)}<h2 style="margin:16px 0 6px">Forma e conquistas</h2><div class="small">Últimos 5: <span style="letter-spacing:3px">${forma.slice(-5).map(v=>v?'🟢':'🔴').join('')||'—'}</span> · Sequência: <b>${seq}</b> · Melhor: <b>${best}</b></div><div class="selos">${selos.map(x=>`<span class="chip">${x}</span>`).join('')||'<span class="muted small">Jogue para desbloquear conquistas.</span>'}</div>${conf?'<h2 style="margin:12px 0 6px">Confrontos</h2>'+conf:''}<p><a class="btn" href="${wa(p.nome)}" target="_blank" rel="noopener">🎾 Desafiar ${esc(p.nome)}</a></p>`;
+ return `<h2 style="margin:16px 0 6px">Evolução de pontos</h2>${sparkHTML(sid,p)}<h2 style="margin:16px 0 6px">Evolução no ranking</h2>${posChartHTML(sid)}<h2 style="margin:16px 0 6px">Forma e conquistas</h2><div class="small">Últimos 5: <span style="letter-spacing:3px">${forma.slice(-5).map(v=>v?'🟢':'🔴').join('')||'—'}</span> · Sequência: <b>${seq}</b> · Melhor: <b>${best}</b></div><div class="selos">${selos.map(x=>`<span class="chip">${x}</span>`).join('')||'<span class="muted small">Jogue para desbloquear conquistas.</span>'}</div>${conf?'<h2 style="margin:12px 0 6px">Confrontos</h2>'+conf:''}<p><a class="btn" href="${wa(p.nome)}" target="_blank" rel="noopener">🎾 Desafiar ${esc(p.nome)}</a></p>`;
 }
 async function shareRanking(){
  const ps=sortedPlayers().filter(x=>x.status!=='abandonou').slice(0,15);
@@ -345,7 +345,7 @@ function renderHighlights(){
   ${mt('Maior subida',sub&&sub.d>0?esc(sub.x.nome):'—',sub&&sub.d>0?'+'+sub.d+' posições':'')}</div></article>
  <article class="card" style="margin-top:8px"><div class="card-head"><h2>🗓 Ranking do mês</h2>${meses.length?`<select id="mesPick" class="field" style="max-width:150px">${meses.map(x=>`<option value="${x}"${x===mesAtual?' selected':''}>${MESES[+x-1]||x}</option>`).join('')}</select>`:''}</div>
   ${top.length?top.map((t,i)=>`<div class="mes-row"><span>${i+1}º ${esc(playerName(t.k))}</span><b>${t.v>0?'+':''}${t.v} pts</b></div>`).join(''):'<div class="empty">Nenhum jogo registrado neste mês.</div>'}
-  <div class="muted small" style="margin-top:6px">Pontos ganhos nos jogos do mês (não inclui os pontos iniciais).</div></article>`;
+  <div class="muted small" style="margin-top:6px">Pontos ganhos nos jogos do mês (não inclui os pontos iniciais).</div></article>`+hallHTML(m,meses);
 }
 document.addEventListener('change',e=>{if(e.target.id==='mesPick'){mesAtual=e.target.value;renderHighlights();}});
 function sparkHTML(sid,p){
@@ -365,6 +365,26 @@ function favHTML(a,b){
  return `<div class="metric" style="margin:10px 0"><span>Estimativa (pontos + confronto direto)</span><b style="font-size:16px">${esc(A.nome)} ${x}% × ${100-x}% ${esc(B.nome)}</b></div>`;
 }
 function simFavorito(){const box=$('simResult');if(!box)return;let f=$('simFav');if(!f){f=document.createElement('div');f.id='simFav';box.parentNode.insertBefore(f,box);}f.innerHTML=favHTML($('simA').value,$('simB').value);}
+
+// ===== PACOTE v15: Hall da fama e evolução de posição =====
+function ptsPorMes(m,mes){const t={};m.filter(x=>mesDe(x)===mes).forEach(x=>{t[x.vencedorId]=(t[x.vencedorId]||0)+num(x.ptsGanhos);t[x.perdedorId]=(t[x.perdedorId]||0)+num(x.ptsPerdidos);});return t;}
+function hallHTML(m,meses){
+ const fmt=iso=>{const q=String(iso).split('-');return q[2]+'/'+q[1];};
+ const hoje=String(new Date().getMonth()+1).padStart(2,'0');
+ const sem=(season().hall||[]).slice().sort((a,b)=>String(b.semana).localeCompare(String(a.semana))).slice(0,8);
+ const mens=meses.slice().reverse().map(mes=>{const t=ptsPorMes(m,mes),id=Object.keys(t).sort((a,b)=>t[b]-t[a])[0];return id?{mes,id,v:t[id]}:null;}).filter(Boolean);
+ const row=(l,r)=>`<div class="mes-row"><span>${l}</span><b>${r}</b></div>`;
+ return `<article class="card" style="margin-top:8px"><div class="card-head"><h2>🏆 Hall da fama</h2></div><div class="muted small">Campeões da semana</div>${sem.length?sem.map(h=>row('Semana de '+fmt(h.semana)+' · '+esc(h.nome),'+'+h.pts+' pts')).join(''):'<div class="empty">Aparece após a primeira virada de semana.</div>'}<div class="muted small" style="margin-top:8px">Campeões do mês</div>${mens.length?mens.map(t=>row((MESES[+t.mes-1]||t.mes)+(t.mes===hoje?' (parcial)':'')+' · '+esc(playerName(t.id)),(t.v>0?'+':'')+t.v+' pts')).join(''):'<div class="empty">Sem jogos registrados.</div>'}</article>`;
+}
+function posChartHTML(sid){
+ const hist=(season().posHist||[]).slice().sort((a,b)=>String(a.semana).localeCompare(String(b.semana))).map(h=>(h.posicoes||{})[sid]).filter(v=>v!=null);
+ const act=sortedPlayers().filter(x=>x.status!=='abandonou'),i=act.findIndex(x=>String(x.id)===sid);
+ if(i>=0)hist.push(i+1);
+ if(hist.length<2)return '<div class="muted small">Disponível após a primeira virada de semana.</div>';
+ const W=300,H=90,P=10,mn=Math.min(...hist),r=(Math.max(...hist)-mn)||1;
+ const xy=hist.map((v,k)=>[P+k*(W-2*P)/(hist.length-1),P+(v-mn)/r*(H-2*P)]);
+ return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;max-width:420px;display:block" role="img" aria-label="Evolução da posição no ranking"><polyline fill="none" style="stroke:var(--accent,#4ade80)" stroke-width="2.5" stroke-linejoin="round" points="${xy.map(a=>a[0].toFixed(1)+','+a[1].toFixed(1)).join(' ')}"/>${xy.map((a,k)=>`<circle cx="${a[0].toFixed(1)}" cy="${a[1].toFixed(1)}" r="3" style="fill:var(--accent,#4ade80)"/><text x="${a[0].toFixed(1)}" y="${Math.max(8,a[1]-6).toFixed(1)}" font-size="9" text-anchor="middle" fill="currentColor">${hist[k]}º</text>`).join('')}</svg><div class="muted small">Posição ao fim de cada semana (a última é a atual). Quanto mais alto, melhor.</div>`;
+}
 
 loadData();
 </script>
