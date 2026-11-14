@@ -67,6 +67,7 @@ th{padding:6px 4px;font-size:11px}td{padding:6px 4px;font-size:14.5px}
 .match.new{background:linear-gradient(90deg,#c7f36b1c,transparent);box-shadow:inset 3px 0 0 var(--lime);padding-left:9px;border-radius:8px}.tag-new{font-size:9px;font-weight:800;letter-spacing:.06em;background:var(--red);color:#2a0b0a;border-radius:6px;padding:1px 5px;margin-left:6px;vertical-align:1px}.mvr{font-size:10px;font-weight:800;margin-left:6px;white-space:nowrap}
 @media(prefers-reduced-motion:reduce){.bn-dot{animation:none}}
 .me-card{margin-bottom:6px}.me-card .row{margin:5px 0;font-size:14.5px}.me-card a.chip,a.btn{text-decoration:none;color:inherit;display:inline-block}.me-top{display:flex;justify-content:space-between;align-items:center;gap:8px}.me-top b{font-size:20px}.selos{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0}
+#view-ranking .table-wrap td:nth-child(2),#view-ranking .table-wrap th:nth-child(2){position:sticky;left:0;z-index:1;background:var(--panel)}.me-row td{background:rgba(74,222,128,.12)!important}.hl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.mes-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)}
 </style>
 </head>
 <body>
@@ -79,6 +80,7 @@ th{padding:6px 4px;font-size:11px}td{padding:6px 4px;font-size:14.5px}
 
 <div id="newBanner" role="status" hidden></div>
 <div id="meCard"></div>
+<div id="weekHighlights"></div>
 <section class="stats" id="stats"></section>
 <nav class="tabs" aria-label="Navegação principal">
  <button class="tab active" data-view="inicio">Visão geral</button><button class="tab" data-view="ranking">Classificação<i class="bdg" id="bdgRank" hidden></i></button><button class="tab" data-view="historico">Partidas<i class="bdg" id="bdgHist" hidden></i></button><button class="tab" data-view="jogadores">Jogadores</button><button class="tab" data-view="confrontos">Confrontos</button><button class="tab" data-view="simulador">Simulador</button>
@@ -120,7 +122,7 @@ async function loadDataRun(force){
   const parsed=normalize(await response.json());
   database=parsed;updateAvail=false;
   try{localStorage.setItem('zs_public_cache',JSON.stringify(parsed));}catch(_){}
-  $('connection').textContent=navigator.onLine?'Dados atualizados':'Sem internet · última cópia';
+  $('connection').textContent=navigator.onLine?'Dados atualizados'+agoTxt():'Sem internet · última cópia'+agoTxt();
   $('connection').previousElementSibling?.classList.add('dot');
   $('updated').textContent='Publicado em '+formatDate(parsed.publicadoEm);
   renderSeasonOptions();
@@ -185,11 +187,11 @@ function renderHome(){
  const p=sortedPlayers(),m=matches(),lead=p.find(x=>x.status!=='abandonou');
  $('leader').innerHTML=lead?`<div class="leader"><div class="rank-big">#1</div><div><div class="leader-name">${esc(lead.nome)}</div><div class="leader-meta">${lead.vitorias} vitórias · ${lead.jogos} partidas</div></div><div class="points"><b>${lead.pontosTotais}</b><small>pontos</small></div></div>`:'<div class="empty"><strong>Ranking aguardando dados</strong>Publique o primeiro arquivo de dados do ADM.</div>';
  $('topTable').innerHTML=p.filter(x=>x.status!=='abandonou').slice(0,5).map((x,i)=>`<tr><td class="rank-num">${i+1}</td><td><button class="player-link" data-player="${x.id}">${esc(x.nome)}</button>${mv(x.id)}</td><td>${x.jogos}</td><td>${x.vitorias}</td><td><b>${x.pontosTotais}</b></td></tr>`).join('')||'<tr><td colspan="5" class="muted">Sem jogadores cadastrados.</td></tr>';
- $('recentMatches').innerHTML=m.slice(0,6).map(matchHTML).join('')||'<div class="empty">Nenhuma partida registrada.</div>';
+ renderHighlights();$('recentMatches').innerHTML=m.slice(0,6).map(matchHTML).join('')||'<div class="empty">Nenhuma partida registrada.</div>';
 }
 function renderRanking(){
  const p=sortedPlayers();$('rankingCount').textContent=p.length+' jogadores';
- let activePos=0;$('rankingTable').innerHTML=p.map(x=>{const pos=x.status==='abandonou'?'—':++activePos;return `<tr><td class="rank-num">${pos}${arrow(x,pos)}</td><td><button class="player-link" data-player="${x.id}">${esc(x.nome)}</button>${mv(x.id)}${x.status==='abandonou'?' <span class="muted small">· inativo</span>':''}</td><td>${x.jogos}</td><td>${x.vitorias}</td><td>${x.ptsGanhos}</td><td>${x.ptsPerdidos}</td><td class="${x.ptsGanhos-x.ptsPerdidos>=0?'positive':'negative'}">${x.ptsGanhos-x.ptsPerdidos>0?'+':''}${x.ptsGanhos-x.ptsPerdidos}</td><td><b>${x.pontosTotais}</b></td><td class="${num(x.variacaoSemana)>0?'up':num(x.variacaoSemana)<0?'down':'muted'}">${num(x.variacaoSemana)>0?'▲ '+num(x.variacaoSemana):num(x.variacaoSemana)<0?'▼ '+Math.abs(num(x.variacaoSemana)):'–'}</td></tr>`}).join('')||'<tr><td colspan="9" class="muted">Sem dados.</td></tr>';
+ let activePos=0;$('rankingTable').innerHTML=p.map(x=>{const pos=x.status==='abandonou'?'—':++activePos;return `<tr${String(x.id)===myId()?' class="me-row"':''}><td class="rank-num">${pos}${arrow(x,pos)}</td><td><button class="player-link" data-player="${x.id}">${esc(x.nome)}</button>${mv(x.id)}${x.status==='abandonou'?' <span class="muted small">· inativo</span>':''}</td><td>${x.jogos}</td><td>${x.vitorias}</td><td>${x.ptsGanhos}</td><td>${x.ptsPerdidos}</td><td class="${x.ptsGanhos-x.ptsPerdidos>=0?'positive':'negative'}">${x.ptsGanhos-x.ptsPerdidos>0?'+':''}${x.ptsGanhos-x.ptsPerdidos}</td><td><b>${x.pontosTotais}</b></td><td class="${num(x.variacaoSemana)>0?'up':num(x.variacaoSemana)<0?'down':'muted'}">${num(x.variacaoSemana)>0?'▲ '+num(x.variacaoSemana):num(x.variacaoSemana)<0?'▼ '+Math.abs(num(x.variacaoSemana)):'–'}</td></tr>`}).join('')||'<tr><td colspan="9" class="muted">Sem dados.</td></tr>';
 }
 function matchHTML(m){const isNew=diff.matches.has(mkey(m));return `<div class="match${isNew?' new':''}"><span class="match-id">${esc(m.idJogo||'—')}</span><div class="match-names"><b>${esc(m.vencedor)}</b> venceu ${esc(m.perdedor)}${isNew?'<span class="tag-new">NOVO</span>':''}<div class="muted small">${esc(m.data||'Data não informada')}</div></div><span class="score">${esc(m.placar||'—')}</span></div>`;}
 function renderHistory(){
@@ -217,13 +219,13 @@ function renderH2H(){
  const a=$('h2hA').value,b=$('h2hB').value;if(!a||!b||a===b){$('h2hResult').textContent='Selecione dois jogadores diferentes.';return;}
  const list=matches().filter(m=>(String(m.vencedorId)===a&&String(m.perdedorId)===b)||(String(m.vencedorId)===b&&String(m.perdedorId)===a));
  const wa=list.filter(m=>String(m.vencedorId)===a).length,wb=list.length-wa;
- $('h2hResult').className='';$('h2hResult').innerHTML=`<div class="metric-grid"><div class="metric"><span>${esc(playerName(a))} · vitórias</span><b>${wa}</b></div><div class="metric"><span>${esc(playerName(b))} · vitórias</span><b>${wb}</b></div><div class="metric"><span>Partidas</span><b>${list.length}</b></div></div><div style="margin-top:18px">${list.map(matchHTML).join('')||'<div class="empty">Ainda não há confrontos registrados entre esses jogadores.</div>'}</div>`;
+ $('h2hResult').className='';$('h2hResult').innerHTML=`${favHTML(a,b)}<div class="metric-grid"><div class="metric"><span>${esc(playerName(a))} · vitórias</span><b>${wa}</b></div><div class="metric"><span>${esc(playerName(b))} · vitórias</span><b>${wb}</b></div><div class="metric"><span>Partidas</span><b>${list.length}</b></div></div><div style="margin-top:18px">${list.map(matchHTML).join('')||'<div class="empty">Ainda não há confrontos registrados entre esses jogadores.</div>'}</div>`;
 }
 const ord=n=>n+'ª';
 function project(w,l,score){const [gw,gl]=score.split('x').map(Number),pt=scorePoints(score);
  return players().map(p=>{const W=String(p.id)===String(w),L=String(p.id)===String(l);if(!W&&!L)return p;
   return {...p,jogos:p.jogos+1,vitorias:p.vitorias+(W?1:0),pontosTotais:p.pontosTotais+(W?pt.winner:pt.loser),ptsGanhos:p.ptsGanhos+(W?gw:gl),ptsPerdidos:p.ptsPerdidos+(W?gl:gw)};}).sort(comparePlayers);}
-function simulate(){
+function simulate(){setTimeout(simFavorito,0);
  const a=$('simA').value,b=$('simB').value,box=$('simResult');
  const na=playerName(a),nb=playerName(b);$('simWinner').options[0].textContent=na+' vence';$('simWinner').options[1].textContent=nb+' vence';
  if(!a||!b||a===b){box.innerHTML='<div class="empty">Escolha dois jogadores diferentes.</div>';return;}
@@ -311,13 +313,58 @@ function extraProfile(id,p){
  if(lider&&String(lider.id)===sid&&p.jogos>0)selos.push('🥇 Líder');
  if(outros.length&&outros.every(x=>h2[String(x.id)]))selos.push('🤝 Enfrentou todos');
  const conf=Object.keys(h2).map(k=>`<div class="muted small">${esc(playerName(k))}: ${h2[k].v}V – ${h2[k].d}D</div>`).join('');
- return `<h2 style="margin:16px 0 6px">Forma e conquistas</h2><div class="small">Últimos 5: <span style="letter-spacing:3px">${forma.slice(-5).map(v=>v?'🟢':'🔴').join('')||'—'}</span> · Sequência: <b>${seq}</b> · Melhor: <b>${best}</b></div><div class="selos">${selos.map(x=>`<span class="chip">${x}</span>`).join('')||'<span class="muted small">Jogue para desbloquear conquistas.</span>'}</div>${conf?'<h2 style="margin:12px 0 6px">Confrontos</h2>'+conf:''}<p><a class="btn" href="${wa(p.nome)}" target="_blank" rel="noopener">🎾 Desafiar ${esc(p.nome)}</a></p>`;
+ return `<h2 style="margin:16px 0 6px">Evolução de pontos</h2>${sparkHTML(sid,p)}<h2 style="margin:16px 0 6px">Forma e conquistas</h2><div class="small">Últimos 5: <span style="letter-spacing:3px">${forma.slice(-5).map(v=>v?'🟢':'🔴').join('')||'—'}</span> · Sequência: <b>${seq}</b> · Melhor: <b>${best}</b></div><div class="selos">${selos.map(x=>`<span class="chip">${x}</span>`).join('')||'<span class="muted small">Jogue para desbloquear conquistas.</span>'}</div>${conf?'<h2 style="margin:12px 0 6px">Confrontos</h2>'+conf:''}<p><a class="btn" href="${wa(p.nome)}" target="_blank" rel="noopener">🎾 Desafiar ${esc(p.nome)}</a></p>`;
 }
 async function shareRanking(){
  const ps=sortedPlayers().filter(x=>x.status!=='abandonou').slice(0,15);
  const txt='🎾 Ranking Zona Sul — '+new Date().toLocaleDateString('pt-BR')+'\n'+ps.map((x,i)=>`${i+1}º ${x.nome} — ${x.pontosTotais} pts`).join('\n');
  try{if(navigator.share)await navigator.share({text:txt});else{await navigator.clipboard.writeText(txt);alert('Classificação copiada!');}}catch(_){}
 }
+
+// ===== PACOTE v14: destaques, mês, gráfico, favorito =====
+const MESES=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+let mesAtual='';
+const mesDe=m=>(m.data||'').split('/')[1]||'';
+function agoTxt(){const t=Date.parse(database&&database.publicadoEm);if(!t)return '';const h=Math.round((Date.now()-t)/36e5);return ' · publicado '+(h<1?'agora':h<48?'há '+h+' h':'há '+Math.round(h/24)+' dias ⚠️');}
+function renderHighlights(){
+ const el=$('weekHighlights');if(!el)return;
+ const m=matches(),wk=m.filter(x=>x.isSemanaAtual),ps=sortedPlayers().filter(x=>x.status!=='abandonou');
+ const cont={};wk.forEach(x=>{[x.vencedorId,x.perdedorId].forEach(i=>{cont[i]=(cont[i]||0)+1;});});
+ const camp=ps.filter(x=>x.variacaoSemana>0).sort((a,b)=>b.variacaoSemana-a.variacaoSemana)[0];
+ const ativo=ps.filter(x=>cont[x.id]).sort((a,b)=>cont[b.id]-cont[a.id])[0];
+ const sub=ps.map((x,i)=>({x,d:x.posAnt==null?0:x.posAnt-(i+1)})).sort((a,b)=>b.d-a.d)[0];
+ const meses=[...new Set(m.map(mesDe).filter(Boolean))].sort(),hoje=String(new Date().getMonth()+1).padStart(2,'0');
+ if(!mesAtual||!meses.includes(mesAtual))mesAtual=meses.includes(hoje)?hoje:(meses[meses.length-1]||'');
+ const pts={};m.filter(x=>mesDe(x)===mesAtual).forEach(x=>{pts[x.vencedorId]=(pts[x.vencedorId]||0)+num(x.ptsGanhos);pts[x.perdedorId]=(pts[x.perdedorId]||0)+num(x.ptsPerdidos);});
+ const top=Object.keys(pts).map(k=>({k,v:pts[k]})).sort((a,b)=>b.v-a.v).slice(0,5);
+ const mt=(t,v,sub)=>`<div class="metric"><span>${t}</span><b style="font-size:16px">${v}</b>${sub?`<span>${sub}</span>`:''}</div>`;
+ el.innerHTML=`<article class="card"><div class="card-head"><h2>📅 Destaques da semana</h2></div><div class="hl-grid">
+  ${mt('Jogos na semana',wk.length)}
+  ${mt('Campeão da semana',camp?esc(camp.nome):'—',camp?'+'+camp.variacaoSemana+' pts':'')}
+  ${mt('Mais ativo',ativo?esc(ativo.nome):'—',ativo?cont[ativo.id]+' jogos':'')}
+  ${mt('Maior subida',sub&&sub.d>0?esc(sub.x.nome):'—',sub&&sub.d>0?'+'+sub.d+' posições':'')}</div></article>
+ <article class="card" style="margin-top:8px"><div class="card-head"><h2>🗓 Ranking do mês</h2>${meses.length?`<select id="mesPick" class="field" style="max-width:150px">${meses.map(x=>`<option value="${x}"${x===mesAtual?' selected':''}>${MESES[+x-1]||x}</option>`).join('')}</select>`:''}</div>
+  ${top.length?top.map((t,i)=>`<div class="mes-row"><span>${i+1}º ${esc(playerName(t.k))}</span><b>${t.v>0?'+':''}${t.v} pts</b></div>`).join(''):'<div class="empty">Nenhum jogo registrado neste mês.</div>'}
+  <div class="muted small" style="margin-top:6px">Pontos ganhos nos jogos do mês (não inclui os pontos iniciais).</div></article>`;
+}
+document.addEventListener('change',e=>{if(e.target.id==='mesPick'){mesAtual=e.target.value;renderHighlights();}});
+function sparkHTML(sid,p){
+ const h=matches().filter(m=>String(m.vencedorId)===sid||String(m.perdedorId)===sid).reverse();
+ if(!h.length)return '<div class="muted small">Sem jogos registrados para montar o gráfico.</div>';
+ const d=h.map(m=>String(m.vencedorId)===sid?num(m.ptsGanhos):num(m.ptsPerdidos));
+ let v=p.pontosTotais-d.reduce((a,b)=>a+b,0);const pts=[v];d.forEach(x=>{v+=x;pts.push(v);});
+ const W=300,H=90,P=8,mn=Math.min(...pts),r=(Math.max(...pts)-mn)||1;
+ const xy=pts.map((y,i)=>[P+i*(W-2*P)/Math.max(1,pts.length-1),H-P-(y-mn)/r*(H-2*P)]);
+ return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;max-width:420px;display:block" role="img" aria-label="Evolução de pontos"><polyline fill="none" style="stroke:var(--accent,#4ade80)" stroke-width="2.5" stroke-linejoin="round" points="${xy.map(a=>a[0].toFixed(1)+','+a[1].toFixed(1)).join(' ')}"/>${xy.map(a=>`<circle cx="${a[0].toFixed(1)}" cy="${a[1].toFixed(1)}" r="3" style="fill:var(--accent,#4ade80)"/>`).join('')}</svg><div class="muted small">De ${pts[0]} para ${pts[pts.length-1]} pts em ${h.length} jogo(s) registrados</div>`;
+}
+function favHTML(a,b){
+ if(!a||!b||a===b)return '';
+ const P=players(),A=P.find(x=>String(x.id)===String(a)),B=P.find(x=>String(x.id)===String(b));if(!A||!B)return '';
+ const net=matches().reduce((s,m)=>{const w=String(m.vencedorId),l=String(m.perdedorId);return (w===String(a)&&l===String(b))?s+1:(w===String(b)&&l===String(a))?s-1:s;},0);
+ const pa=Math.max(.05,Math.min(.95,1/(1+Math.pow(10,-(A.pontosTotais-B.pontosTotais)/250))+Math.max(-.1,Math.min(.1,net*.05)))),x=Math.round(pa*100);
+ return `<div class="metric" style="margin:10px 0"><span>Estimativa (pontos + confronto direto)</span><b style="font-size:16px">${esc(A.nome)} ${x}% × ${100-x}% ${esc(B.nome)}</b></div>`;
+}
+function simFavorito(){const box=$('simResult');if(!box)return;let f=$('simFav');if(!f){f=document.createElement('div');f.id='simFav';box.parentNode.insertBefore(f,box);}f.innerHTML=favHTML($('simA').value,$('simB').value);}
 
 loadData();
 </script>
