@@ -1,6 +1,6 @@
 {
   "v": "2026.1",
-  "dataExportacao": "2026-11-14T14:40:14.459Z",
+  "dataExportacao": "2026-11-14T16:09:39.181Z",
   "jogadores": [
     {
       "id": 1794368145937,
@@ -60,12 +60,12 @@
     {
       "id": 1794368188067,
       "nome": "Babu",
-      "jogos": 4,
+      "jogos": 5,
       "vitorias": 2,
-      "ptsGanhos": 12,
-      "ptsPerdidos": 12,
-      "pontosTotais": 650,
-      "variacaoSemana": 50,
+      "ptsGanhos": 13,
+      "ptsPerdidos": 16,
+      "pontosTotais": 645,
+      "variacaoSemana": 45,
       "status": "ativo"
     },
     {
@@ -280,12 +280,12 @@
     {
       "id": 1794368438812,
       "nome": "Diego",
-      "jogos": 0,
-      "vitorias": 0,
-      "ptsGanhos": 0,
-      "ptsPerdidos": 0,
-      "pontosTotais": 0,
-      "variacaoSemana": 0,
+      "jogos": 1,
+      "vitorias": 1,
+      "ptsGanhos": 4,
+      "ptsPerdidos": 1,
+      "pontosTotais": 30,
+      "variacaoSemana": 30,
       "status": "ativo"
     },
     {
@@ -323,6 +323,18 @@
     }
   ],
   "historicoJogos": [
+    {
+      "idJogo": "#14",
+      "data": "14/11",
+      "vencedor": "Diego",
+      "vencedorId": 1794368438812,
+      "ptsGanhos": 30,
+      "perdedor": "Babu",
+      "perdedorId": 1794368188067,
+      "ptsPerdidos": -5,
+      "placar": "4x1",
+      "isSemanaAtual": true
+    },
     {
       "idJogo": "#13",
       "data": "12/11",
@@ -480,7 +492,7 @@
       "isSemanaAtual": true
     }
   ],
-  "contadorJogos": 14,
+  "contadorJogos": 15,
   "semanaRef": "2026-11-09",
   "temporada": "2026",
   "regras": {
