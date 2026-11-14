@@ -67,7 +67,7 @@ th{padding:6px 4px;font-size:11px}td{padding:6px 4px;font-size:14.5px}
 .match.new{background:linear-gradient(90deg,#c7f36b1c,transparent);box-shadow:inset 3px 0 0 var(--lime);padding-left:9px;border-radius:8px}.tag-new{font-size:9px;font-weight:800;letter-spacing:.06em;background:var(--red);color:#2a0b0a;border-radius:6px;padding:1px 5px;margin-left:6px;vertical-align:1px}.mvr{font-size:10px;font-weight:800;margin-left:6px;white-space:nowrap}
 @media(prefers-reduced-motion:reduce){.bn-dot{animation:none}}
 .me-card{margin-bottom:6px}.me-card .row{margin:5px 0;font-size:14.5px}.me-card a.chip,a.btn{text-decoration:none;color:inherit;display:inline-block}.me-top{display:flex;justify-content:space-between;align-items:center;gap:8px}.me-top b{font-size:20px}.selos{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0}
-#view-ranking .table-wrap td:nth-child(2),#view-ranking .table-wrap th:nth-child(2){position:sticky;left:0;z-index:1;background:var(--panel)}.me-row td{background:rgba(74,222,128,.12)!important}.hl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.mes-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)}
+#view-ranking .table-wrap th:first-child{position:sticky;left:0;z-index:2;background:var(--panel)}#rankingTable tr[data-player] td:first-child{position:sticky;left:0;z-index:1}.hl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.mes-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)}
 .pl-panel{position:relative;margin:4px 0 12px;padding:12px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.04)}.pl-x{position:sticky;top:6px;float:right;z-index:2;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:inherit;font-size:16px;cursor:pointer}.pl-item .match:hover{filter:brightness(1.08)}
 .tabs .tab{position:relative;display:flex;flex-direction:column;align-items:center;gap:1px;padding:6px 12px;border-radius:14px;font-size:12.5px;line-height:1.15;min-width:68px}
 .tabs .tab .ti{font-size:19px;line-height:1.1}
@@ -76,6 +76,17 @@ th{padding:6px 4px;font-size:11px}td{padding:6px 4px;font-size:14.5px}
 .teaser span{color:var(--lime);font-weight:800;white-space:nowrap}
 #view-inicio #meCard{margin-bottom:8px}
 #rankingTable tr[data-player]{cursor:pointer;scroll-margin-top:84px}.pl-sticky{position:sticky;left:0;box-sizing:border-box;margin:6px 0}
+#view-ranking table{min-width:430px}
+#view-ranking th,#rankingTable td{padding:7px 5px;font-size:13.5px}
+#view-ranking th{font-size:10px}
+#view-ranking th:not(:first-child),#rankingTable td:not(.pl-name){text-align:center}
+#rankingTable .pl-name{white-space:normal;min-width:98px;padding-left:8px}
+#rankingTable .rank-num{font-weight:800}
+#rankingTable tr[data-player] td{background:var(--rowbg,var(--panel))}
+@supports(color:color-mix(in srgb,red,blue)){
+ #rankingTable tr.z1{--rowbg:color-mix(in srgb,var(--panel) 93%,#fff)}
+ #rankingTable tr.me-row{--rowbg:color-mix(in srgb,var(--panel) 84%,#4ade80)}
+}
 </style>
 </head>
 <body>
@@ -97,7 +108,7 @@ th{padding:6px 4px;font-size:11px}td{padding:6px 4px;font-size:14.5px}
  <article class="card"><div class="card-head"><h2>Últimas partidas</h2><button class="tab" data-go="historico">Ver todas →</button></div><div id="recentMatches"></div></article>
  </div></section>
 <section class="view" id="view-destaques"><div id="weekHighlights"></div><h2 class="muted small" style="margin:16px 0 6px">Números da temporada</h2><section class="stats" id="stats"></section></section>
-<section class="view" id="view-ranking"><article class="card"><div class="card-head"><h2>Classificação completa</h2><span class="muted small" id="rankingCount"></span><button class="btn" data-act="share">📤 Compartilhar</button></div><div class="table-wrap"><table><thead><tr><th>#</th><th>Jogador</th><th>J</th><th>V</th><th>Gg</th><th>Gp</th><th>Saldo</th><th>PTS</th><th>Sem.</th></tr></thead><tbody id="rankingTable"></tbody></table></div></article></section>
+<section class="view" id="view-ranking"><article class="card"><div class="card-head"><h2>Classificação completa</h2><span class="muted small" id="rankingCount"></span><button class="btn" data-act="share">📤 Compartilhar</button></div><div class="table-wrap"><table><thead><tr><th>Jogador</th><th>#</th><th>PTS</th><th>J</th><th>V</th><th>Gg</th><th>Gp</th><th>Saldo</th><th>Sem.</th></tr></thead><tbody id="rankingTable"></tbody></table></div></article></section>
 <section class="view" id="view-historico"><article class="card"><div class="card-head"><h2>Histórico de partidas</h2><span class="muted small" id="matchCount"></span></div><div class="form-row"><input class="field" id="historySearch" placeholder="Buscar jogador ou placar..."><select class="field" id="historyFilter"><option value="all">Todas as partidas</option><option value="semana">Somente a semana atual</option></select></div><div id="historyList"></div></article></section>
 <section class="view" id="view-confrontos"><article class="card"><div class="card-head"><h2>Central de confrontos</h2><span class="muted small">Comparação direta</span></div><div class="form-row"><select class="field" id="h2hA"></select><select class="field" id="h2hB"></select></div><div id="h2hResult" class="empty">Selecione dois jogadores para comparar.</div></article></section>
 <section class="view" id="view-simulador"><article class="card"><div class="card-head"><h2>Simulador de resultado</h2><span class="muted small">Projeção hipotética</span></div><div class="form-row"><select class="field" id="simA" aria-label="Jogador 1"></select><select class="field" id="simB" aria-label="Jogador 2"></select></div><div class="form-row"><select class="field" id="simScore"><option value="6x0">6 × 0</option><option value="6x1">6 × 1</option><option value="6x2" selected>6 × 2</option><option value="6x3">6 × 3</option><option value="6x4">6 × 4</option><option value="6x5">6 × 5</option><option value="4x0">4 × 0</option><option value="4x1">4 × 1</option><option value="4x2">4 × 2</option><option value="4x3">4 × 3</option><option value="3x0">3 × 0</option><option value="3x1">3 × 1</option><option value="3x2">3 × 2</option></select><select class="field" id="simWinner"><option value="a">Jogador 1 vence</option><option value="b">Jogador 2 vence</option></select></div><div id="simResult"></div></article></section>
@@ -197,7 +208,12 @@ function renderHome(){
 }
 function renderRanking(){
  const p=sortedPlayers();$('rankingCount').textContent=p.length+' jogadores · toque para ver o perfil';
- let activePos=0;$('rankingTable').innerHTML=p.map(x=>{const pos=x.status==='abandonou'?'—':++activePos;return `<tr data-player="${x.id}"${String(x.id)===myId()?' class="me-row"':''}><td class="rank-num">${pos}${arrow(x,pos)}</td><td><button class="player-link" data-player="${x.id}">${esc(x.nome)}</button>${mv(x.id)}${x.status==='abandonou'?' <span class="muted small">· inativo</span>':''}</td><td>${x.jogos}</td><td>${x.vitorias}</td><td>${x.ptsGanhos}</td><td>${x.ptsPerdidos}</td><td class="${x.ptsGanhos-x.ptsPerdidos>=0?'positive':'negative'}">${x.ptsGanhos-x.ptsPerdidos>0?'+':''}${x.ptsGanhos-x.ptsPerdidos}</td><td><b>${x.pontosTotais}</b></td><td class="${num(x.variacaoSemana)>0?'up':num(x.variacaoSemana)<0?'down':'muted'}">${num(x.variacaoSemana)>0?'▲ '+num(x.variacaoSemana):num(x.variacaoSemana)<0?'▼ '+Math.abs(num(x.variacaoSemana)):'–'}</td></tr>${openProfiles.has(String(x.id))?detailRow(x.id):''}`}).join('')||'<tr><td colspan="9" class="muted">Sem dados.</td></tr>';sizePanels();
+ let activePos=0;
+ $('rankingTable').innerHTML=p.map((x,i)=>{
+  const pos=x.status==='abandonou'?'—':++activePos,sal=x.ptsGanhos-x.ptsPerdidos,sem=num(x.variacaoSemana);
+  return `<tr data-player="${x.id}" class="z${i%2}${String(x.id)===myId()?' me-row':''}"><td class="pl-name"><button class="player-link" data-player="${x.id}">${esc(x.nome)}</button>${mv(x.id)}${x.status==='abandonou'?' <span class="muted small">· inativo</span>':''}</td><td class="rank-num">${pos}${arrow(x,pos)}</td><td><b>${x.pontosTotais}</b></td><td>${x.jogos}</td><td>${x.vitorias}</td><td>${x.ptsGanhos}</td><td>${x.ptsPerdidos}</td><td class="${sal>=0?'positive':'negative'}">${sal>0?'+':''}${sal}</td><td class="${sem>0?'up':sem<0?'down':'muted'}">${sem>0?'▲ '+sem:sem<0?'▼ '+Math.abs(sem):'–'}</td></tr>${openProfiles.has(String(x.id))?detailRow(x.id):''}`;
+ }).join('')||'<tr><td colspan="9" class="muted">Sem dados.</td></tr>';
+ sizePanels();
 }
 function matchHTML(m){const isNew=diff.matches.has(mkey(m));return `<div class="match${isNew?' new':''}"><span class="match-id">${esc(m.idJogo||'—')}</span><div class="match-names"><b>${esc(m.vencedor)}</b> venceu ${esc(m.perdedor)}${isNew?'<span class="tag-new">NOVO</span>':''}<div class="muted small">${esc(m.data||'Data não informada')}</div></div><span class="score">${esc(m.placar||'—')}</span></div>`;}
 function renderHistory(){
