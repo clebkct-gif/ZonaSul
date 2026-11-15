@@ -1,6 +1,6 @@
 {
   "v": "2026.1",
-  "dataExportacao": "2026-11-14T16:09:39.181Z",
+  "dataExportacao": "2026-11-15T14:31:47.050Z",
   "jogadores": [
     {
       "id": 1794368145937,
@@ -60,12 +60,12 @@
     {
       "id": 1794368188067,
       "nome": "Babu",
-      "jogos": 5,
+      "jogos": 6,
       "vitorias": 2,
-      "ptsGanhos": 13,
-      "ptsPerdidos": 16,
-      "pontosTotais": 645,
-      "variacaoSemana": 45,
+      "ptsGanhos": 18,
+      "ptsPerdidos": 22,
+      "pontosTotais": 635,
+      "variacaoSemana": 35,
       "status": "ativo"
     },
     {
@@ -113,6 +113,17 @@
       "status": "ativo"
     },
     {
+      "id": 1794368241309,
+      "nome": "Manoel",
+      "jogos": 3,
+      "vitorias": 2,
+      "ptsGanhos": 11,
+      "ptsPerdidos": 11,
+      "pontosTotais": 310,
+      "variacaoSemana": 75,
+      "status": "ativo"
+    },
+    {
       "id": 1794368236819,
       "nome": "Rafael",
       "jogos": 0,
@@ -121,17 +132,6 @@
       "ptsPerdidos": 0,
       "pontosTotais": 260,
       "variacaoSemana": 0,
-      "status": "ativo"
-    },
-    {
-      "id": 1794368241309,
-      "nome": "Manoel",
-      "jogos": 2,
-      "vitorias": 1,
-      "ptsGanhos": 5,
-      "ptsPerdidos": 6,
-      "pontosTotais": 260,
-      "variacaoSemana": 25,
       "status": "ativo"
     },
     {
@@ -324,6 +324,18 @@
   ],
   "historicoJogos": [
     {
+      "idJogo": "#15",
+      "data": "15/11",
+      "vencedor": "Manoel",
+      "vencedorId": 1794368241309,
+      "ptsGanhos": 50,
+      "perdedor": "Babu",
+      "perdedorId": 1794368188067,
+      "ptsPerdidos": -10,
+      "placar": "6x5",
+      "isSemanaAtual": true
+    },
+    {
       "idJogo": "#14",
       "data": "14/11",
       "vencedor": "Diego",
@@ -492,7 +504,7 @@
       "isSemanaAtual": true
     }
   ],
-  "contadorJogos": 15,
+  "contadorJogos": 16,
   "semanaRef": "2026-11-09",
   "temporada": "2026",
   "regras": {
@@ -520,8 +532,8 @@
     1794368210025,
     1794368214764,
     1794368229249,
-    1794368236819,
     1794368241309,
+    1794368236819,
     1794368254277,
     1794368259321,
     1794368278952,
