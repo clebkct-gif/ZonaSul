@@ -1,39 +1,42 @@
 {
   "v": "2026.1",
-  "dataExportacao": "2026-11-15T14:31:47.050Z",
+  "dataExportacao": "2026-11-16T13:23:18.005Z",
   "jogadores": [
     {
       "id": 1794368145937,
       "nome": "Abraão",
-      "jogos": 5,
-      "vitorias": 3,
-      "ptsGanhos": 17,
-      "ptsPerdidos": 15,
-      "pontosTotais": 1105,
-      "variacaoSemana": 90,
-      "status": "ativo"
+      "jogos": 6,
+      "vitorias": 4,
+      "ptsGanhos": 21,
+      "ptsPerdidos": 17,
+      "pontosTotais": 1135,
+      "variacaoSemana": 0,
+      "status": "ativo",
+      "posAnt": 1
     },
     {
       "id": 1794368153255,
       "nome": "Edian",
-      "jogos": 2,
+      "jogos": 3,
       "vitorias": 2,
-      "ptsGanhos": 8,
-      "ptsPerdidos": 4,
-      "pontosTotais": 1005,
-      "variacaoSemana": 60,
-      "status": "ativo"
+      "ptsGanhos": 11,
+      "ptsPerdidos": 8,
+      "pontosTotais": 1000,
+      "variacaoSemana": 0,
+      "status": "ativo",
+      "posAnt": 2
     },
     {
       "id": 1794368160428,
       "nome": "Wallace",
-      "jogos": 0,
-      "vitorias": 0,
-      "ptsGanhos": 0,
-      "ptsPerdidos": 0,
-      "pontosTotais": 850,
+      "jogos": 1,
+      "vitorias": 1,
+      "ptsGanhos": 4,
+      "ptsPerdidos": 3,
+      "pontosTotais": 880,
       "variacaoSemana": 0,
-      "status": "ativo"
+      "status": "ativo",
+      "posAnt": 3
     },
     {
       "id": 1794368177983,
@@ -43,8 +46,9 @@
       "ptsGanhos": 17,
       "ptsPerdidos": 13,
       "pontosTotais": 835,
-      "variacaoSemana": 65,
-      "status": "ativo"
+      "variacaoSemana": 0,
+      "status": "ativo",
+      "posAnt": 4
     },
     {
       "id": 1794368183847,
@@ -54,8 +58,9 @@
       "ptsGanhos": 8,
       "ptsPerdidos": 12,
       "pontosTotais": 680,
-      "variacaoSemana": 15,
-      "status": "ativo"
+      "variacaoSemana": 0,
+      "status": "ativo",
+      "posAnt": 5
     },
     {
       "id": 1794368188067,
@@ -65,8 +70,9 @@
       "ptsGanhos": 18,
       "ptsPerdidos": 22,
       "pontosTotais": 635,
-      "variacaoSemana": 35,
-      "status": "ativo"
+      "variacaoSemana": 0,
+      "status": "ativo",
+      "posAnt": 6
     },
     {
       "id": 1794368201921,
@@ -76,8 +82,9 @@
       "ptsGanhos": 8,
       "ptsPerdidos": 9,
       "pontosTotais": 620,
-      "variacaoSemana": 45,
-      "status": "ativo"
+      "variacaoSemana": 0,
+      "status": "ativo",
+      "posAnt": 7
     },
     {
       "id": 1794368210025,
@@ -87,8 +94,9 @@
       "ptsGanhos": 2,
       "ptsPerdidos": 4,
       "pontosTotais": 505,
-      "variacaoSemana": -5,
-      "status": "ativo"
+      "variacaoSemana": 0,
+      "status": "ativo",
+      "posAnt": 8
     },
     {
       "id": 1794368214764,
@@ -99,7 +107,8 @@
       "ptsPerdidos": 0,
       "pontosTotais": 440,
       "variacaoSemana": 0,
-      "status": "ativo"
+      "status": "ativo",
+      "posAnt": 9
     },
     {
       "id": 1794368229249,
@@ -110,7 +119,8 @@
       "ptsPerdidos": 0,
       "pontosTotais": 385,
       "variacaoSemana": 0,
-      "status": "ativo"
+      "status": "ativo",
+      "posAnt": 10
     },
     {
       "id": 1794368241309,
@@ -120,8 +130,9 @@
       "ptsGanhos": 11,
       "ptsPerdidos": 11,
       "pontosTotais": 310,
-      "variacaoSemana": 75,
-      "status": "ativo"
+      "variacaoSemana": 0,
+      "status": "ativo",
+      "posAnt": 11
     },
     {
       "id": 1794368236819,
@@ -132,7 +143,8 @@
       "ptsPerdidos": 0,
       "pontosTotais": 260,
       "variacaoSemana": 0,
-      "status": "ativo"
+      "status": "ativo",
+      "posAnt": 12
     },
     {
       "id": 1794368254277,
@@ -143,7 +155,8 @@
       "ptsPerdidos": 0,
       "pontosTotais": 210,
       "variacaoSemana": 0,
-      "status": "ativo"
+      "status": "ativo",
+      "posAnt": 13
     },
     {
       "id": 1794368259321,
@@ -153,8 +166,9 @@
       "ptsGanhos": 2,
       "ptsPerdidos": 6,
       "pontosTotais": 170,
-      "variacaoSemana": -10,
-      "status": "ativo"
+      "variacaoSemana": 0,
+      "status": "ativo",
+      "posAnt": 14
     },
     {
       "id": 1794368278952,
@@ -165,7 +179,8 @@
       "ptsPerdidos": 0,
       "pontosTotais": 150,
       "variacaoSemana": 0,
-      "status": "ativo"
+      "status": "ativo",
+      "posAnt": 15
     },
     {
       "id": 1794368285334,
@@ -176,7 +191,8 @@
       "ptsPerdidos": 0,
       "pontosTotais": 150,
       "variacaoSemana": 0,
-      "status": "ativo"
+      "status": "ativo",
+      "posAnt": 16
     },
     {
       "id": 1794368302491,
@@ -187,7 +203,8 @@
       "ptsPerdidos": 0,
       "pontosTotais": 125,
       "variacaoSemana": 0,
-      "status": "ativo"
+      "status": "ativo",
+      "posAnt": 17
     },
     {
       "id": 1794368306813,
@@ -198,7 +215,8 @@
       "ptsPerdidos": 0,
       "pontosTotais": 120,
       "variacaoSemana": 0,
-      "status": "ativo"
+      "status": "ativo",
+      "posAnt": 18
     },
     {
       "id": 1794368340600,
@@ -209,7 +227,8 @@
       "ptsPerdidos": 0,
       "pontosTotais": 115,
       "variacaoSemana": 0,
-      "status": "ativo"
+      "status": "ativo",
+      "posAnt": 19
     },
     {
       "id": 1794368397498,
@@ -219,8 +238,9 @@
       "ptsGanhos": 6,
       "ptsPerdidos": 2,
       "pontosTotais": 95,
-      "variacaoSemana": 50,
-      "status": "ativo"
+      "variacaoSemana": 0,
+      "status": "ativo",
+      "posAnt": 20
     },
     {
       "id": 1794368311981,
@@ -231,7 +251,8 @@
       "ptsPerdidos": 0,
       "pontosTotais": 65,
       "variacaoSemana": 0,
-      "status": "ativo"
+      "status": "ativo",
+      "posAnt": 21
     },
     {
       "id": 1794368344549,
@@ -242,7 +263,8 @@
       "ptsPerdidos": 0,
       "pontosTotais": 60,
       "variacaoSemana": 0,
-      "status": "ativo"
+      "status": "ativo",
+      "posAnt": 22
     },
     {
       "id": 1794368387371,
@@ -253,7 +275,8 @@
       "ptsPerdidos": 0,
       "pontosTotais": 50,
       "variacaoSemana": 0,
-      "status": "ativo"
+      "status": "ativo",
+      "posAnt": 23
     },
     {
       "id": 1794368392875,
@@ -264,18 +287,8 @@
       "ptsPerdidos": 0,
       "pontosTotais": 50,
       "variacaoSemana": 0,
-      "status": "ativo"
-    },
-    {
-      "id": 1794368414765,
-      "nome": "Paulinho",
-      "jogos": 1,
-      "vitorias": 0,
-      "ptsGanhos": 2,
-      "ptsPerdidos": 4,
-      "pontosTotais": 35,
-      "variacaoSemana": -5,
-      "status": "ativo"
+      "status": "ativo",
+      "posAnt": 24
     },
     {
       "id": 1794368438812,
@@ -285,8 +298,21 @@
       "ptsGanhos": 4,
       "ptsPerdidos": 1,
       "pontosTotais": 30,
-      "variacaoSemana": 30,
-      "status": "ativo"
+      "variacaoSemana": 0,
+      "status": "ativo",
+      "posAnt": 26
+    },
+    {
+      "id": 1794368414765,
+      "nome": "Paulinho",
+      "jogos": 2,
+      "vitorias": 0,
+      "ptsGanhos": 4,
+      "ptsPerdidos": 8,
+      "pontosTotais": 30,
+      "variacaoSemana": 0,
+      "status": "ativo",
+      "posAnt": 25
     },
     {
       "id": 1794368422237,
@@ -297,7 +323,8 @@
       "ptsPerdidos": 0,
       "pontosTotais": -10,
       "variacaoSemana": 0,
-      "status": "ativo"
+      "status": "ativo",
+      "posAnt": 27
     },
     {
       "id": 1794368427648,
@@ -308,7 +335,8 @@
       "ptsPerdidos": 0,
       "pontosTotais": -30,
       "variacaoSemana": 0,
-      "status": "ativo"
+      "status": "ativo",
+      "posAnt": 28
     },
     {
       "id": 1794368433954,
@@ -319,10 +347,35 @@
       "ptsPerdidos": 0,
       "pontosTotais": -35,
       "variacaoSemana": 0,
-      "status": "ativo"
+      "status": "ativo",
+      "posAnt": 29
     }
   ],
   "historicoJogos": [
+    {
+      "idJogo": "#17",
+      "data": "15/11",
+      "vencedor": "Abraão",
+      "vencedorId": 1794368145937,
+      "ptsGanhos": 30,
+      "perdedor": "Paulinho",
+      "perdedorId": 1794368414765,
+      "ptsPerdidos": -5,
+      "placar": "4x2",
+      "isSemanaAtual": false
+    },
+    {
+      "idJogo": "#16",
+      "data": "15/11",
+      "vencedor": "Wallace",
+      "vencedorId": 1794368160428,
+      "ptsGanhos": 30,
+      "perdedor": "Edian",
+      "perdedorId": 1794368153255,
+      "ptsPerdidos": -5,
+      "placar": "4x3",
+      "isSemanaAtual": false
+    },
     {
       "idJogo": "#15",
       "data": "15/11",
@@ -333,7 +386,7 @@
       "perdedorId": 1794368188067,
       "ptsPerdidos": -10,
       "placar": "6x5",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#14",
@@ -345,7 +398,7 @@
       "perdedorId": 1794368188067,
       "ptsPerdidos": -5,
       "placar": "4x1",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#13",
@@ -357,7 +410,7 @@
       "perdedorId": 1794368177983,
       "ptsPerdidos": -5,
       "placar": "3x2",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#12",
@@ -369,7 +422,7 @@
       "perdedorId": 1794368210025,
       "ptsPerdidos": -5,
       "placar": "4x2",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#11",
@@ -381,7 +434,7 @@
       "perdedorId": 1794368145937,
       "ptsPerdidos": -5,
       "placar": "4x2",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#10",
@@ -393,7 +446,7 @@
       "perdedorId": 1794368183847,
       "ptsPerdidos": -5,
       "placar": "4x2",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#09",
@@ -405,7 +458,7 @@
       "perdedorId": 1794368188067,
       "ptsPerdidos": -5,
       "placar": "4x2",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#08",
@@ -417,7 +470,7 @@
       "perdedorId": 1794368414765,
       "ptsPerdidos": -5,
       "placar": "4x2",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#07",
@@ -429,7 +482,7 @@
       "perdedorId": 1794368241309,
       "ptsPerdidos": -5,
       "placar": "4x1",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#06",
@@ -441,7 +494,7 @@
       "perdedorId": 1794368259321,
       "ptsPerdidos": -10,
       "placar": "6x2",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#05",
@@ -453,7 +506,7 @@
       "perdedorId": 1794368183847,
       "ptsPerdidos": -10,
       "placar": "6x2",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#04",
@@ -465,7 +518,7 @@
       "perdedorId": 1794368145937,
       "ptsPerdidos": -10,
       "placar": "6x2",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#03",
@@ -477,7 +530,7 @@
       "perdedorId": 1794368201921,
       "ptsPerdidos": -5,
       "placar": "4x2",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#02",
@@ -489,7 +542,7 @@
       "perdedorId": 1794368188067,
       "ptsPerdidos": -5,
       "placar": "4x2",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#01",
@@ -501,11 +554,11 @@
       "perdedorId": 1794368177983,
       "ptsPerdidos": -10,
       "placar": "6x5",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     }
   ],
-  "contadorJogos": 16,
-  "semanaRef": "2026-11-09",
+  "contadorJogos": 18,
+  "semanaRef": "2026-11-16",
   "temporada": "2026",
   "regras": {
     "3": {
@@ -546,12 +599,54 @@
     1794368344549,
     1794368387371,
     1794368392875,
-    1794368414765,
     1794368438812,
+    1794368414765,
     1794368422237,
     1794368427648,
     1794368433954
   ],
-  "hallDaFama": [],
-  "historicoPosicoes": []
+  "hallDaFama": [
+    {
+      "semana": "2026-11-09",
+      "id": 1794368145937,
+      "nome": "Abraão",
+      "pts": 90
+    }
+  ],
+  "historicoPosicoes": [
+    {
+      "semana": "2026-11-09",
+      "posicoes": {
+        "1794368145937": 1,
+        "1794368153255": 2,
+        "1794368160428": 3,
+        "1794368177983": 4,
+        "1794368183847": 5,
+        "1794368188067": 6,
+        "1794368201921": 7,
+        "1794368210025": 8,
+        "1794368214764": 9,
+        "1794368229249": 10,
+        "1794368241309": 11,
+        "1794368236819": 12,
+        "1794368254277": 13,
+        "1794368259321": 14,
+        "1794368278952": 15,
+        "1794368285334": 16,
+        "1794368302491": 17,
+        "1794368306813": 18,
+        "1794368340600": 19,
+        "1794368397498": 20,
+        "1794368311981": 21,
+        "1794368344549": 22,
+        "1794368387371": 23,
+        "1794368392875": 24,
+        "1794368414765": 25,
+        "1794368438812": 26,
+        "1794368422237": 27,
+        "1794368427648": 28,
+        "1794368433954": 29
+      }
+    }
+  ]
 }
