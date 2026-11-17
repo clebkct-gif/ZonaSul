@@ -1,6 +1,6 @@
 {
   "v": "2026.1",
-  "dataExportacao": "2026-11-16T13:23:18.005Z",
+  "dataExportacao": "2026-11-17T16:27:06.056Z",
   "jogadores": [
     {
       "id": 1794368145937,
@@ -27,6 +27,18 @@
       "posAnt": 2
     },
     {
+      "id": 1794368177983,
+      "nome": "Gabriel",
+      "jogos": 5,
+      "vitorias": 3,
+      "ptsGanhos": 23,
+      "ptsPerdidos": 17,
+      "pontosTotais": 885,
+      "variacaoSemana": 50,
+      "status": "ativo",
+      "posAnt": 4
+    },
+    {
       "id": 1794368160428,
       "nome": "Wallace",
       "jogos": 1,
@@ -37,18 +49,6 @@
       "variacaoSemana": 0,
       "status": "ativo",
       "posAnt": 3
-    },
-    {
-      "id": 1794368177983,
-      "nome": "Gabriel",
-      "jogos": 4,
-      "vitorias": 2,
-      "ptsGanhos": 17,
-      "ptsPerdidos": 13,
-      "pontosTotais": 835,
-      "variacaoSemana": 0,
-      "status": "ativo",
-      "posAnt": 4
     },
     {
       "id": 1794368183847,
@@ -161,12 +161,12 @@
     {
       "id": 1794368259321,
       "nome": "Mateus",
-      "jogos": 1,
+      "jogos": 2,
       "vitorias": 0,
-      "ptsGanhos": 2,
-      "ptsPerdidos": 6,
-      "pontosTotais": 170,
-      "variacaoSemana": 0,
+      "ptsGanhos": 6,
+      "ptsPerdidos": 12,
+      "pontosTotais": 160,
+      "variacaoSemana": -10,
       "status": "ativo",
       "posAnt": 14
     },
@@ -352,6 +352,18 @@
     }
   ],
   "historicoJogos": [
+    {
+      "idJogo": "#18",
+      "data": "17/11",
+      "vencedor": "Gabriel",
+      "vencedorId": 1794368177983,
+      "ptsGanhos": 50,
+      "perdedor": "Mateus",
+      "perdedorId": 1794368259321,
+      "ptsPerdidos": -10,
+      "placar": "6x4",
+      "isSemanaAtual": true
+    },
     {
       "idJogo": "#17",
       "data": "15/11",
@@ -557,7 +569,7 @@
       "isSemanaAtual": false
     }
   ],
-  "contadorJogos": 18,
+  "contadorJogos": 19,
   "semanaRef": "2026-11-16",
   "temporada": "2026",
   "regras": {
@@ -577,8 +589,8 @@
   "ordem": [
     1794368145937,
     1794368153255,
-    1794368160428,
     1794368177983,
+    1794368160428,
     1794368183847,
     1794368188067,
     1794368201921,
