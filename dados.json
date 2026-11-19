@@ -1,6 +1,6 @@
 {
   "v": "2026.1",
-  "dataExportacao": "2026-11-17T16:27:06.056Z",
+  "dataExportacao": "2026-11-19T15:07:48.078Z",
   "jogadores": [
     {
       "id": 1794368145937,
@@ -29,12 +29,12 @@
     {
       "id": 1794368177983,
       "nome": "Gabriel",
-      "jogos": 5,
-      "vitorias": 3,
-      "ptsGanhos": 23,
-      "ptsPerdidos": 17,
-      "pontosTotais": 885,
-      "variacaoSemana": 50,
+      "jogos": 7,
+      "vitorias": 5,
+      "ptsGanhos": 33,
+      "ptsPerdidos": 20,
+      "pontosTotais": 965,
+      "variacaoSemana": 130,
       "status": "ativo",
       "posAnt": 4
     },
@@ -53,26 +53,14 @@
     {
       "id": 1794368183847,
       "nome": "Samira",
-      "jogos": 3,
-      "vitorias": 1,
-      "ptsGanhos": 8,
-      "ptsPerdidos": 12,
-      "pontosTotais": 680,
-      "variacaoSemana": 0,
+      "jogos": 5,
+      "vitorias": 2,
+      "ptsGanhos": 16,
+      "ptsPerdidos": 21,
+      "pontosTotais": 720,
+      "variacaoSemana": 40,
       "status": "ativo",
       "posAnt": 5
-    },
-    {
-      "id": 1794368188067,
-      "nome": "Babu",
-      "jogos": 6,
-      "vitorias": 2,
-      "ptsGanhos": 18,
-      "ptsPerdidos": 22,
-      "pontosTotais": 635,
-      "variacaoSemana": 0,
-      "status": "ativo",
-      "posAnt": 6
     },
     {
       "id": 1794368201921,
@@ -85,6 +73,18 @@
       "variacaoSemana": 0,
       "status": "ativo",
       "posAnt": 7
+    },
+    {
+      "id": 1794368188067,
+      "nome": "Babu",
+      "jogos": 8,
+      "vitorias": 2,
+      "ptsGanhos": 22,
+      "ptsPerdidos": 32,
+      "pontosTotais": 620,
+      "variacaoSemana": -15,
+      "status": "ativo",
+      "posAnt": 6
     },
     {
       "id": 1794368210025,
@@ -267,6 +267,18 @@
       "posAnt": 22
     },
     {
+      "id": 1794368414765,
+      "nome": "Paulinho",
+      "jogos": 4,
+      "vitorias": 1,
+      "ptsGanhos": 9,
+      "ptsPerdidos": 13,
+      "pontosTotais": 55,
+      "variacaoSemana": 25,
+      "status": "ativo",
+      "posAnt": 25
+    },
+    {
       "id": 1794368387371,
       "nome": "Ciaero",
       "jogos": 0,
@@ -301,18 +313,6 @@
       "variacaoSemana": 0,
       "status": "ativo",
       "posAnt": 26
-    },
-    {
-      "id": 1794368414765,
-      "nome": "Paulinho",
-      "jogos": 2,
-      "vitorias": 0,
-      "ptsGanhos": 4,
-      "ptsPerdidos": 8,
-      "pontosTotais": 30,
-      "variacaoSemana": 0,
-      "status": "ativo",
-      "posAnt": 25
     },
     {
       "id": 1794368422237,
@@ -352,6 +352,54 @@
     }
   ],
   "historicoJogos": [
+    {
+      "idJogo": "#22",
+      "data": "19/11",
+      "vencedor": "Gabriel",
+      "vencedorId": 1794368177983,
+      "ptsGanhos": 30,
+      "perdedor": "Paulinho",
+      "perdedorId": 1794368414765,
+      "ptsPerdidos": -5,
+      "placar": "4x1",
+      "isSemanaAtual": true
+    },
+    {
+      "idJogo": "#21",
+      "data": "19/11",
+      "vencedor": "Paulinho",
+      "vencedorId": 1794368414765,
+      "ptsGanhos": 30,
+      "perdedor": "Babu",
+      "perdedorId": 1794368188067,
+      "ptsPerdidos": -5,
+      "placar": "4x1",
+      "isSemanaAtual": true
+    },
+    {
+      "idJogo": "#20",
+      "data": "19/11",
+      "vencedor": "Gabriel",
+      "vencedorId": 1794368177983,
+      "ptsGanhos": 50,
+      "perdedor": "Samira",
+      "perdedorId": 1794368183847,
+      "ptsPerdidos": -10,
+      "placar": "6x2",
+      "isSemanaAtual": true
+    },
+    {
+      "idJogo": "#19",
+      "data": "19/11",
+      "vencedor": "Samira",
+      "vencedorId": 1794368183847,
+      "ptsGanhos": 50,
+      "perdedor": "Babu",
+      "perdedorId": 1794368188067,
+      "ptsPerdidos": -10,
+      "placar": "6x3",
+      "isSemanaAtual": true
+    },
     {
       "idJogo": "#18",
       "data": "17/11",
@@ -569,7 +617,7 @@
       "isSemanaAtual": false
     }
   ],
-  "contadorJogos": 19,
+  "contadorJogos": 23,
   "semanaRef": "2026-11-16",
   "temporada": "2026",
   "regras": {
@@ -592,8 +640,8 @@
     1794368177983,
     1794368160428,
     1794368183847,
-    1794368188067,
     1794368201921,
+    1794368188067,
     1794368210025,
     1794368214764,
     1794368229249,
@@ -609,10 +657,10 @@
     1794368397498,
     1794368311981,
     1794368344549,
+    1794368414765,
     1794368387371,
     1794368392875,
     1794368438812,
-    1794368414765,
     1794368422237,
     1794368427648,
     1794368433954
