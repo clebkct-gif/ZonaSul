@@ -1,6 +1,6 @@
 {
   "v": "2026.1",
-  "dataExportacao": "2026-11-19T15:07:48.078Z",
+  "dataExportacao": "2026-11-19T15:25:20.875Z",
   "jogadores": [
     {
       "id": 1794368145937,
@@ -32,7 +32,7 @@
       "jogos": 7,
       "vitorias": 5,
       "ptsGanhos": 33,
-      "ptsPerdidos": 20,
+      "ptsPerdidos": 22,
       "pontosTotais": 965,
       "variacaoSemana": 130,
       "status": "ativo",
@@ -55,7 +55,7 @@
       "nome": "Samira",
       "jogos": 5,
       "vitorias": 2,
-      "ptsGanhos": 16,
+      "ptsGanhos": 17,
       "ptsPerdidos": 21,
       "pontosTotais": 720,
       "variacaoSemana": 40,
@@ -271,7 +271,7 @@
       "nome": "Paulinho",
       "jogos": 4,
       "vitorias": 1,
-      "ptsGanhos": 9,
+      "ptsGanhos": 10,
       "ptsPerdidos": 13,
       "pontosTotais": 55,
       "variacaoSemana": 25,
@@ -361,7 +361,7 @@
       "perdedor": "Paulinho",
       "perdedorId": 1794368414765,
       "ptsPerdidos": -5,
-      "placar": "4x1",
+      "placar": "4x2",
       "isSemanaAtual": true
     },
     {
@@ -385,7 +385,7 @@
       "perdedor": "Samira",
       "perdedorId": 1794368183847,
       "ptsPerdidos": -10,
-      "placar": "6x2",
+      "placar": "6x3",
       "isSemanaAtual": true
     },
     {
