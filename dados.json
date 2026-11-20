@@ -1,16 +1,16 @@
 {
   "v": "2026.1",
-  "dataExportacao": "2026-11-20T18:15:30.733Z",
+  "dataExportacao": "2026-11-20T19:02:45.538Z",
   "jogadores": [
     {
       "id": 1794368145937,
       "nome": "Abraão",
-      "jogos": 7,
-      "vitorias": 4,
-      "ptsGanhos": 22,
+      "jogos": 8,
+      "vitorias": 5,
+      "ptsGanhos": 26,
       "ptsPerdidos": 21,
-      "pontosTotais": 1130,
-      "variacaoSemana": -5,
+      "pontosTotais": 1160,
+      "variacaoSemana": 25,
       "status": "ativo",
       "posAnt": 1
     },
@@ -77,12 +77,12 @@
     {
       "id": 1794368188067,
       "nome": "Babu",
-      "jogos": 12,
+      "jogos": 13,
       "vitorias": 4,
       "ptsGanhos": 32,
-      "ptsPerdidos": 44,
-      "pontosTotais": 670,
-      "variacaoSemana": 35,
+      "ptsPerdidos": 48,
+      "pontosTotais": 665,
+      "variacaoSemana": 30,
       "status": "ativo",
       "posAnt": 6
     },
@@ -352,6 +352,18 @@
     }
   ],
   "historicoJogos": [
+    {
+      "idJogo": "#33",
+      "data": "20/11",
+      "vencedor": "Abraão",
+      "vencedorId": 1794368145937,
+      "ptsGanhos": 30,
+      "perdedor": "Babu",
+      "perdedorId": 1794368188067,
+      "ptsPerdidos": -5,
+      "placar": "4x0",
+      "isSemanaAtual": true
+    },
     {
       "idJogo": "#32",
       "data": "20/11",
@@ -737,7 +749,7 @@
       "isSemanaAtual": false
     }
   ],
-  "contadorJogos": 33,
+  "contadorJogos": 34,
   "semanaRef": "2026-11-16",
   "temporada": "2026",
   "regras": {
