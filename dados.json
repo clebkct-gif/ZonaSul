@@ -1,63 +1,63 @@
 {
   "v": "2026.1",
-  "dataExportacao": "2026-11-20T19:02:45.538Z",
+  "dataExportacao": "2026-11-24T13:40:25.539Z",
   "jogadores": [
     {
       "id": 1794368145937,
       "nome": "Abraão",
-      "jogos": 8,
+      "jogos": 9,
       "vitorias": 5,
-      "ptsGanhos": 26,
-      "ptsPerdidos": 21,
-      "pontosTotais": 1160,
-      "variacaoSemana": 25,
+      "ptsGanhos": 29,
+      "ptsPerdidos": 25,
+      "pontosTotais": 1155,
+      "variacaoSemana": 0,
       "status": "ativo",
       "posAnt": 1
     },
     {
       "id": 1794368153255,
       "nome": "Edian",
-      "jogos": 5,
-      "vitorias": 4,
-      "ptsGanhos": 19,
-      "ptsPerdidos": 11,
-      "pontosTotais": 1060,
-      "variacaoSemana": 60,
+      "jogos": 7,
+      "vitorias": 5,
+      "ptsGanhos": 29,
+      "ptsPerdidos": 19,
+      "pontosTotais": 1100,
+      "variacaoSemana": 40,
       "status": "ativo",
       "posAnt": 2
     },
     {
       "id": 1794368177983,
       "nome": "Gabriel",
-      "jogos": 10,
-      "vitorias": 7,
-      "ptsGanhos": 43,
-      "ptsPerdidos": 27,
-      "pontosTotais": 1020,
-      "variacaoSemana": 185,
-      "status": "ativo",
-      "posAnt": 4
-    },
-    {
-      "id": 1794368160428,
-      "nome": "Wallace",
-      "jogos": 3,
-      "vitorias": 2,
-      "ptsGanhos": 9,
-      "ptsPerdidos": 10,
-      "pontosTotais": 905,
-      "variacaoSemana": 25,
+      "jogos": 11,
+      "vitorias": 8,
+      "ptsGanhos": 54,
+      "ptsPerdidos": 36,
+      "pontosTotais": 1065,
+      "variacaoSemana": 0,
       "status": "ativo",
       "posAnt": 3
     },
     {
+      "id": 1794368160428,
+      "nome": "Wallace",
+      "jogos": 5,
+      "vitorias": 3,
+      "ptsGanhos": 20,
+      "ptsPerdidos": 20,
+      "pontosTotais": 945,
+      "variacaoSemana": 50,
+      "status": "ativo",
+      "posAnt": 4
+    },
+    {
       "id": 1794368183847,
       "nome": "Samira",
-      "jogos": 5,
-      "vitorias": 2,
-      "ptsGanhos": 17,
-      "ptsPerdidos": 21,
-      "pontosTotais": 720,
+      "jogos": 10,
+      "vitorias": 5,
+      "ptsGanhos": 40,
+      "ptsPerdidos": 44,
+      "pontosTotais": 830,
       "variacaoSemana": 40,
       "status": "ativo",
       "posAnt": 5
@@ -65,12 +65,12 @@
     {
       "id": 1794368201921,
       "nome": "Play",
-      "jogos": 6,
-      "vitorias": 3,
-      "ptsGanhos": 19,
-      "ptsPerdidos": 21,
-      "pontosTotais": 670,
-      "variacaoSemana": 50,
+      "jogos": 9,
+      "vitorias": 5,
+      "ptsGanhos": 37,
+      "ptsPerdidos": 35,
+      "pontosTotais": 760,
+      "variacaoSemana": 0,
       "status": "ativo",
       "posAnt": 7
     },
@@ -82,7 +82,7 @@
       "ptsGanhos": 32,
       "ptsPerdidos": 48,
       "pontosTotais": 665,
-      "variacaoSemana": 30,
+      "variacaoSemana": 0,
       "status": "ativo",
       "posAnt": 6
     },
@@ -123,6 +123,18 @@
       "posAnt": 10
     },
     {
+      "id": 1794368236819,
+      "nome": "Rafael",
+      "jogos": 5,
+      "vitorias": 2,
+      "ptsGanhos": 19,
+      "ptsPerdidos": 23,
+      "pontosTotais": 315,
+      "variacaoSemana": 0,
+      "status": "ativo",
+      "posAnt": 12
+    },
+    {
       "id": 1794368241309,
       "nome": "Manoel",
       "jogos": 3,
@@ -133,18 +145,6 @@
       "variacaoSemana": 0,
       "status": "ativo",
       "posAnt": 11
-    },
-    {
-      "id": 1794368236819,
-      "nome": "Rafael",
-      "jogos": 1,
-      "vitorias": 0,
-      "ptsGanhos": 1,
-      "ptsPerdidos": 4,
-      "pontosTotais": 255,
-      "variacaoSemana": -5,
-      "status": "ativo",
-      "posAnt": 12
     },
     {
       "id": 1794368254277,
@@ -159,16 +159,40 @@
       "posAnt": 13
     },
     {
+      "id": 1794368397498,
+      "nome": "Kaio",
+      "jogos": 3,
+      "vitorias": 3,
+      "ptsGanhos": 16,
+      "ptsPerdidos": 10,
+      "pontosTotais": 175,
+      "variacaoSemana": 0,
+      "status": "ativo",
+      "posAnt": 20
+    },
+    {
       "id": 1794368259321,
       "nome": "Mateus",
-      "jogos": 5,
+      "jogos": 6,
       "vitorias": 1,
-      "ptsGanhos": 16,
-      "ptsPerdidos": 21,
-      "pontosTotais": 180,
-      "variacaoSemana": 10,
+      "ptsGanhos": 20,
+      "ptsPerdidos": 28,
+      "pontosTotais": 170,
+      "variacaoSemana": -10,
       "status": "ativo",
       "posAnt": 14
+    },
+    {
+      "id": 1794368302491,
+      "nome": "Sandro",
+      "jogos": 1,
+      "vitorias": 1,
+      "ptsGanhos": 4,
+      "ptsPerdidos": 1,
+      "pontosTotais": 155,
+      "variacaoSemana": 0,
+      "status": "ativo",
+      "posAnt": 17
     },
     {
       "id": 1794368278952,
@@ -195,18 +219,6 @@
       "posAnt": 16
     },
     {
-      "id": 1794368302491,
-      "nome": "Sandro",
-      "jogos": 0,
-      "vitorias": 0,
-      "ptsGanhos": 0,
-      "ptsPerdidos": 0,
-      "pontosTotais": 125,
-      "variacaoSemana": 0,
-      "status": "ativo",
-      "posAnt": 17
-    },
-    {
       "id": 1794368306813,
       "nome": "Lenon",
       "jogos": 0,
@@ -231,30 +243,6 @@
       "posAnt": 19
     },
     {
-      "id": 1794368397498,
-      "nome": "Kaio",
-      "jogos": 1,
-      "vitorias": 1,
-      "ptsGanhos": 6,
-      "ptsPerdidos": 2,
-      "pontosTotais": 95,
-      "variacaoSemana": 0,
-      "status": "ativo",
-      "posAnt": 20
-    },
-    {
-      "id": 1794368311981,
-      "nome": "Melissa",
-      "jogos": 0,
-      "vitorias": 0,
-      "ptsGanhos": 0,
-      "ptsPerdidos": 0,
-      "pontosTotais": 65,
-      "variacaoSemana": 0,
-      "status": "ativo",
-      "posAnt": 21
-    },
-    {
       "id": 1794368344549,
       "nome": "Alan",
       "jogos": 0,
@@ -274,9 +262,9 @@
       "ptsGanhos": 10,
       "ptsPerdidos": 13,
       "pontosTotais": 55,
-      "variacaoSemana": 25,
+      "variacaoSemana": 0,
       "status": "ativo",
-      "posAnt": 25
+      "posAnt": 23
     },
     {
       "id": 1794368387371,
@@ -288,7 +276,7 @@
       "pontosTotais": 50,
       "variacaoSemana": 0,
       "status": "ativo",
-      "posAnt": 23
+      "posAnt": 24
     },
     {
       "id": 1794368392875,
@@ -300,7 +288,19 @@
       "pontosTotais": 50,
       "variacaoSemana": 0,
       "status": "ativo",
-      "posAnt": 24
+      "posAnt": 25
+    },
+    {
+      "id": 1794368311981,
+      "nome": "Melissa",
+      "jogos": 4,
+      "vitorias": 0,
+      "ptsGanhos": 7,
+      "ptsPerdidos": 16,
+      "pontosTotais": 45,
+      "variacaoSemana": 0,
+      "status": "ativo",
+      "posAnt": 21
     },
     {
       "id": 1794368438812,
@@ -353,6 +353,162 @@
   ],
   "historicoJogos": [
     {
+      "idJogo": "#46",
+      "data": "23/11",
+      "vencedor": "Wallace",
+      "vencedorId": 1794368160428,
+      "ptsGanhos": 50,
+      "perdedor": "Edian",
+      "perdedorId": 1794368153255,
+      "ptsPerdidos": -10,
+      "placar": "6x4",
+      "isSemanaAtual": true
+    },
+    {
+      "idJogo": "#45",
+      "data": "23/11",
+      "vencedor": "Edian",
+      "vencedorId": 1794368153255,
+      "ptsGanhos": 50,
+      "perdedor": "Samira",
+      "perdedorId": 1794368183847,
+      "ptsPerdidos": -10,
+      "placar": "6x2",
+      "isSemanaAtual": true
+    },
+    {
+      "idJogo": "#44",
+      "data": "23/11",
+      "vencedor": "Samira",
+      "vencedorId": 1794368183847,
+      "ptsGanhos": 50,
+      "perdedor": "Mateus",
+      "perdedorId": 1794368259321,
+      "ptsPerdidos": -10,
+      "placar": "6x3",
+      "isSemanaAtual": true
+    },
+    {
+      "idJogo": "#43",
+      "data": "22/11",
+      "vencedor": "Samira",
+      "vencedorId": 1794368183847,
+      "ptsGanhos": 30,
+      "perdedor": "Melissa",
+      "perdedorId": 1794368311981,
+      "ptsPerdidos": -5,
+      "placar": "4x3",
+      "isSemanaAtual": false
+    },
+    {
+      "idJogo": "#42",
+      "data": "22/11",
+      "vencedor": "Play",
+      "vencedorId": 1794368201921,
+      "ptsGanhos": 30,
+      "perdedor": "Melissa",
+      "perdedorId": 1794368311981,
+      "ptsPerdidos": -5,
+      "placar": "4x1",
+      "isSemanaAtual": false
+    },
+    {
+      "idJogo": "#41",
+      "data": "22/11",
+      "vencedor": "Kaio",
+      "vencedorId": 1794368397498,
+      "ptsGanhos": 50,
+      "perdedor": "Wallace",
+      "perdedorId": 1794368160428,
+      "ptsPerdidos": -10,
+      "placar": "6x5",
+      "isSemanaAtual": false
+    },
+    {
+      "idJogo": "#40",
+      "data": "22/11",
+      "vencedor": "Kaio",
+      "vencedorId": 1794368397498,
+      "ptsGanhos": 30,
+      "perdedor": "Abraão",
+      "perdedorId": 1794368145937,
+      "ptsPerdidos": -5,
+      "placar": "4x3",
+      "isSemanaAtual": false
+    },
+    {
+      "idJogo": "#39",
+      "data": "22/11",
+      "vencedor": "Play",
+      "vencedorId": 1794368201921,
+      "ptsGanhos": 50,
+      "perdedor": "Rafael",
+      "perdedorId": 1794368236819,
+      "ptsPerdidos": -10,
+      "placar": "6x3",
+      "isSemanaAtual": false
+    },
+    {
+      "idJogo": "#38",
+      "data": "22/11",
+      "vencedor": "Rafael",
+      "vencedorId": 1794368236819,
+      "ptsGanhos": 50,
+      "perdedor": "Samira",
+      "perdedorId": 1794368183847,
+      "ptsPerdidos": -10,
+      "placar": "6x4",
+      "isSemanaAtual": false
+    },
+    {
+      "idJogo": "#37",
+      "data": "22/11",
+      "vencedor": "Sandro",
+      "vencedorId": 1794368302491,
+      "ptsGanhos": 30,
+      "perdedor": "Melissa",
+      "perdedorId": 1794368311981,
+      "ptsPerdidos": -5,
+      "placar": "4x1",
+      "isSemanaAtual": false
+    },
+    {
+      "idJogo": "#36",
+      "data": "22/11",
+      "vencedor": "Rafael",
+      "vencedorId": 1794368236819,
+      "ptsGanhos": 30,
+      "perdedor": "Melissa",
+      "perdedorId": 1794368311981,
+      "ptsPerdidos": -5,
+      "placar": "4x2",
+      "isSemanaAtual": false
+    },
+    {
+      "idJogo": "#35",
+      "data": "22/11",
+      "vencedor": "Gabriel",
+      "vencedorId": 1794368177983,
+      "ptsGanhos": 50,
+      "perdedor": "Rafael",
+      "perdedorId": 1794368236819,
+      "ptsPerdidos": -10,
+      "placar": "7x5",
+      "isSemanaAtual": false
+    },
+    {
+      "idJogo": "#34",
+      "data": "22/11",
+      "vencedor": "Samira",
+      "vencedorId": 1794368183847,
+      "ptsGanhos": 50,
+      "perdedor": "Play",
+      "perdedorId": 1794368201921,
+      "ptsPerdidos": -10,
+      "placar": "7x5",
+      "isSemanaAtual": false
+    },
+    {
       "idJogo": "#33",
       "data": "20/11",
       "vencedor": "Abraão",
@@ -362,7 +518,7 @@
       "perdedorId": 1794368188067,
       "ptsPerdidos": -5,
       "placar": "4x0",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#32",
@@ -374,7 +530,7 @@
       "perdedorId": 1794368236819,
       "ptsPerdidos": -5,
       "placar": "4x1",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#31",
@@ -386,7 +542,7 @@
       "perdedorId": 1794368145937,
       "ptsPerdidos": -5,
       "placar": "4x1",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#30",
@@ -398,7 +554,7 @@
       "perdedorId": 1794368188067,
       "ptsPerdidos": -5,
       "placar": "4x0",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#29",
@@ -410,7 +566,7 @@
       "perdedorId": 1794368188067,
       "ptsPerdidos": -5,
       "placar": "4x2",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#28",
@@ -422,19 +578,19 @@
       "perdedorId": 1794368259321,
       "ptsPerdidos": -5,
       "placar": "4x3",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#27",
       "data": "20/11",
       "vencedor": "Play",
       "vencedorId": 1794368201921,
-      "ptsGanhos": 30,
+      "ptsGanhos": 50,
       "perdedor": "Gabriel",
       "perdedorId": 1794368177983,
-      "ptsPerdidos": -5,
-      "placar": "4x2",
-      "isSemanaAtual": true
+      "ptsPerdidos": -10,
+      "placar": "7x5",
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#26",
@@ -446,7 +602,7 @@
       "perdedorId": 1794368201921,
       "ptsPerdidos": -5,
       "placar": "4x1",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#25",
@@ -458,7 +614,7 @@
       "perdedorId": 1794368259321,
       "ptsPerdidos": -5,
       "placar": "4x3",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#24",
@@ -470,7 +626,7 @@
       "perdedorId": 1794368201921,
       "ptsPerdidos": -5,
       "placar": "4x2",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#23",
@@ -482,7 +638,7 @@
       "perdedorId": 1794368160428,
       "ptsPerdidos": -5,
       "placar": "4x1",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#22",
@@ -494,7 +650,7 @@
       "perdedorId": 1794368414765,
       "ptsPerdidos": -5,
       "placar": "4x2",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#21",
@@ -506,7 +662,7 @@
       "perdedorId": 1794368188067,
       "ptsPerdidos": -5,
       "placar": "4x1",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#20",
@@ -518,7 +674,7 @@
       "perdedorId": 1794368183847,
       "ptsPerdidos": -10,
       "placar": "6x3",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#19",
@@ -530,7 +686,7 @@
       "perdedorId": 1794368188067,
       "ptsPerdidos": -10,
       "placar": "6x3",
-      "isSemanaAtual": true
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#18",
@@ -541,8 +697,8 @@
       "perdedor": "Mateus",
       "perdedorId": 1794368259321,
       "ptsPerdidos": -10,
-      "placar": "6x4",
-      "isSemanaAtual": true
+      "placar": "7x5",
+      "isSemanaAtual": false
     },
     {
       "idJogo": "#17",
@@ -749,8 +905,8 @@
       "isSemanaAtual": false
     }
   ],
-  "contadorJogos": 34,
-  "semanaRef": "2026-11-16",
+  "contadorJogos": 47,
+  "semanaRef": "2026-11-23",
   "temporada": "2026",
   "regras": {
     "3": {
@@ -761,7 +917,15 @@
       "vencedor": 30,
       "perdedor": -5
     },
+    "5": {
+      "vencedor": 30,
+      "perdedor": -5
+    },
     "6": {
+      "vencedor": 50,
+      "perdedor": -10
+    },
+    "7": {
       "vencedor": 50,
       "perdedor": -10
     }
@@ -777,21 +941,21 @@
     1794368210025,
     1794368214764,
     1794368229249,
-    1794368241309,
     1794368236819,
+    1794368241309,
     1794368254277,
+    1794368397498,
     1794368259321,
+    1794368302491,
     1794368278952,
     1794368285334,
-    1794368302491,
     1794368306813,
     1794368340600,
-    1794368397498,
-    1794368311981,
     1794368344549,
     1794368414765,
     1794368387371,
     1794368392875,
+    1794368311981,
     1794368438812,
     1794368422237,
     1794368427648,
@@ -803,6 +967,12 @@
       "id": 1794368145937,
       "nome": "Abraão",
       "pts": 90
+    },
+    {
+      "semana": "2026-11-16",
+      "id": 1794368177983,
+      "nome": "Gabriel",
+      "pts": 185
     }
   ],
   "historicoPosicoes": [
@@ -834,6 +1004,40 @@
         "1794368387371": 23,
         "1794368392875": 24,
         "1794368414765": 25,
+        "1794368438812": 26,
+        "1794368422237": 27,
+        "1794368427648": 28,
+        "1794368433954": 29
+      }
+    },
+    {
+      "semana": "2026-11-16",
+      "posicoes": {
+        "1794368145937": 1,
+        "1794368153255": 2,
+        "1794368177983": 3,
+        "1794368160428": 4,
+        "1794368183847": 5,
+        "1794368188067": 6,
+        "1794368201921": 7,
+        "1794368210025": 8,
+        "1794368214764": 9,
+        "1794368229249": 10,
+        "1794368241309": 11,
+        "1794368236819": 12,
+        "1794368254277": 13,
+        "1794368259321": 14,
+        "1794368278952": 15,
+        "1794368285334": 16,
+        "1794368302491": 17,
+        "1794368306813": 18,
+        "1794368340600": 19,
+        "1794368397498": 20,
+        "1794368311981": 21,
+        "1794368344549": 22,
+        "1794368414765": 23,
+        "1794368387371": 24,
+        "1794368392875": 25,
         "1794368438812": 26,
         "1794368422237": 27,
         "1794368427648": 28,
