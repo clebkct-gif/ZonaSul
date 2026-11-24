@@ -88,6 +88,31 @@ th{padding:6px 4px;font-size:11px}td{padding:6px 4px;font-size:14.5px}
  #rankingTable tr.me-row{--rowbg:color-mix(in srgb,var(--panel) 84%,#4ade80)}
 }
 .pb{display:inline-block;min-width:26px;padding:2px 5px;border-radius:8px;font-weight:900;font-size:14px;line-height:1.2;color:var(--muted)}.pb.p1{background:#ffd54a;color:#3a2a00}.pb.p2{background:#cfd8dc;color:#1c2a30}.pb.p3{background:#d9925a;color:#2b1500}.medal{margin-right:3px;font-size:15px}
+
+/* ===== Aba Semana ===== */
+#view-semana table{min-width:0}
+.wk-item{margin-bottom:8px;scroll-margin-top:84px}
+.wk-row,.wk-head{width:100%;display:flex;align-items:center;gap:10px;text-align:left;color:inherit;font:inherit}
+.wk-row{padding:11px 12px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.04)}
+.wk-head{padding:4px 2px 10px;border:0;background:none;border-bottom:1px solid var(--line);margin-bottom:8px}
+.wk-open{border-color:var(--lime)}
+.wk-row b,.wk-head b{font-size:16px}
+.wk-sub{display:block;color:var(--muted);font-size:13px;margin-top:1px}
+.chev{margin-left:auto;color:var(--lime);font-size:18px}
+.wk-cur{margin-left:8px;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--lime);color:#152419;border-radius:6px;padding:1px 6px;vertical-align:2px}
+.wk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin:6px 0}
+.wk-h{font-size:14px;margin:16px 0 6px;color:var(--lime);letter-spacing:.02em}
+.wk-pos{color:var(--lime)}.wk-neg{color:var(--red)}
+.wk-days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.wk-day{border:1px solid var(--line);background:#ffffff08;color:var(--text);border-radius:10px;padding:5px 2px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.wk-day.on{border-color:var(--lime);background:#c7f36b1a}.wk-day.off{opacity:.4}.wk-day.today{box-shadow:inset 0 -2px 0 var(--gold)}
+.barbox{height:42px;display:flex;align-items:flex-end}.bar{display:block;width:16px;border-radius:4px;background:var(--lime)}
+.wk-dayh{display:flex;justify-content:space-between;align-items:center;margin:12px 0 2px;font-weight:800;color:var(--lime);font-size:14.5px}
+.wk-tag{font-size:10px;font-weight:800;border-radius:6px;padding:1px 5px;margin-left:5px;vertical-align:1px;white-space:nowrap}
+.t-close{background:#f4d27a26;color:var(--gold)}.t-blow{background:#ff827d26;color:var(--red)}.t-zebra{background:#c7f36b26;color:var(--lime)}
+.match.mine{box-shadow:inset 3px 0 0 var(--gold);padding-left:9px;background:linear-gradient(90deg,#f4d27a14,transparent);border-radius:8px}
+.wk-det{margin-top:12px}.wk-det summary{cursor:pointer;color:var(--muted)}
+.mes-row small{opacity:.8}
 </style>
 </head>
 <body>
@@ -98,7 +123,7 @@ th{padding:6px 4px;font-size:11px}td{padding:6px 4px;font-size:14.5px}
  <div class="top-actions"><span class="status"><i class="dot"></i><span id="connection">Conectando dados</span></span><select id="seasonSelect" class="pill" aria-label="Selecionar temporada"></select><button class="btn icon" id="install" hidden title="Instalar aplicativo" aria-label="Instalar aplicativo">⬇</button><button class="btn icon" id="fsBtn" title="Tela cheia" aria-label="Tela cheia"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button><button class="btn icon" id="refresh" title="Atualizar" aria-label="Atualizar">↻</button></div>
 </header>
 <nav class="tabs" aria-label="Navegação principal">
- <button class="tab active" data-view="inicio"><span class="ti">🏠</span><span>Início</span></button><button class="tab" data-view="ranking"><span class="ti">🏅</span><span>Classificação</span><i class="bdg" id="bdgRank" hidden></i></button><button class="tab" data-view="historico"><span class="ti">🎾</span><span>Partidas</span><i class="bdg" id="bdgHist" hidden></i></button><button class="tab" data-view="destaques"><span class="ti">⭐</span><span>Destaques</span></button><button class="tab" data-view="confrontos"><span class="ti">⚔️</span><span>Confrontos</span></button><button class="tab" data-view="simulador"><span class="ti">🧮</span><span>Simulador</span></button>
+ <button class="tab active" data-view="inicio"><span class="ti">🏠</span><span>Início</span></button><button class="tab" data-view="ranking"><span class="ti">🏅</span><span>Classificação</span><i class="bdg" id="bdgRank" hidden></i></button><button class="tab" data-view="historico"><span class="ti">🎾</span><span>Partidas</span><i class="bdg" id="bdgHist" hidden></i></button><button class="tab" data-view="semana"><span class="ti">📆</span><span>Semana</span></button><button class="tab" data-view="destaques"><span class="ti">⭐</span><span>Destaques</span></button><button class="tab" data-view="confrontos"><span class="ti">⚔️</span><span>Confrontos</span></button><button class="tab" data-view="simulador"><span class="ti">🧮</span><span>Simulador</span></button>
 </nav>
 <div id="newBanner" role="status" hidden></div>
 
@@ -108,6 +133,7 @@ th{padding:6px 4px;font-size:11px}td{padding:6px 4px;font-size:14.5px}
  <article class="card"><div class="card-head"><h2>🏆 Top do ranking</h2><span class="muted small">Classificação atual</span></div><div id="leader"></div><div class="table-wrap"><table><thead><tr><th>#</th><th>Jogador</th><th>J</th><th>V</th><th>PTS</th></tr></thead><tbody id="topTable"></tbody></table></div></article>
  <article class="card"><div class="card-head"><h2>Últimas partidas</h2><button class="tab" data-go="historico">Ver todas →</button></div><div id="recentMatches"></div></article>
  </div></section>
+<section class="view" id="view-semana"><div id="weekView"></div></section>
 <section class="view" id="view-destaques"><div id="weekHighlights"></div><h2 class="muted small" style="margin:16px 0 6px">Números da temporada</h2><section class="stats" id="stats"></section></section>
 <section class="view" id="view-ranking"><article class="card"><div class="card-head"><h2>Classificação completa</h2><span class="muted small" id="rankingCount"></span><button class="btn" data-act="share">📤 Compartilhar</button></div><div class="table-wrap"><table><thead><tr><th>#</th><th>Jogador</th><th>PTS</th><th>J</th><th>V</th><th>Gg</th><th>Gp</th><th>Saldo</th><th>Sem.</th></tr></thead><tbody id="rankingTable"></tbody></table></div></article></section>
 <section class="view" id="view-historico"><article class="card"><div class="card-head"><h2>Histórico de partidas</h2><span class="muted small" id="matchCount"></span></div><div class="form-row"><input class="field" id="historySearch" placeholder="Buscar jogador ou placar..."><select class="field" id="historyFilter"><option value="all">Todas as partidas</option><option value="semana">Somente a semana atual</option></select></div><div id="historyList"></div></article></section>
@@ -195,7 +221,7 @@ async function checkRemote(){try{const r=await fetch(DATA_URL+'?t='+Date.now(),{
 setInterval(()=>{if(!document.hidden)checkRemote();},300000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkRemote();});
 function playerName(id){return players().find(p=>String(p.id)===String(id))?.nome||'Jogador';}
-function renderAll(){computeDiff();renderStats();renderMe();renderHome();renderRanking();renderHistory();renderSelects();renderH2H();simulate();renderBanner();}
+function renderAll(){computeDiff();renderStats();renderMe();renderHome();renderRanking();renderHistory();renderSelects();renderH2H();simulate();try{renderWeek();}catch(err){console.error(err);}renderBanner();}
 function renderStats(){
  const p=players(),m=matches(),active=p.filter(x=>x.status!=='abandonou').length, games=m.length;
  const totalWins=p.reduce((s,x)=>s+x.vitorias,0);
@@ -445,6 +471,138 @@ document.addEventListener('click',e=>{const t=e.target.closest('.tab[data-view]'
 // ===== Destaque do pódio (1º ouro, 2º prata, 3º bronze) =====
 function posBadge(pos){return `<span class="pb${pos>=1&&pos<=3?' p'+pos:''}">${pos}</span>`;}
 function medalha(pos){return pos>=1&&pos<=3?`<span class="medal" aria-hidden="true">${['🥇','🥈','🥉'][pos-1]}</span>`:'';}
+
+// ===== ABA SEMANA =====
+const DIAS_L=['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
+const DIAS_C=['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+const MES_C=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+let wkOpen,wkDay='',wkPlayer='';
+const pad2=n=>String(n).padStart(2,'0');
+const isoD=d=>d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate());
+const dayKey=d=>pad2(d.getDate())+'/'+pad2(d.getMonth()+1);
+const addDays=(d,n)=>{const x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()+n);return x;};
+const wkStart=d=>addDays(d,-((d.getDay()+6)%7));
+function seasonYear(){const s=season(),y=parseInt(s.id,10);if(y>1999&&y<2100)return y;return +String(s.semanaRef||'').slice(0,4)||new Date().getFullYear();}
+function matchDate(m){const q=String(m.data||'').split('/'),d=+q[0],mo=+q[1];return d&&mo?new Date(seasonYear(),mo-1,d):null;}
+function rangeTxt(a,b){return a.getMonth()===b.getMonth()?`${a.getDate()} a ${b.getDate()} de ${MES_C[b.getMonth()]}`:`${a.getDate()} ${MES_C[a.getMonth()]} a ${b.getDate()} ${MES_C[b.getMonth()]}`;}
+function gamesOf(m){const p=String(m.placar||'').split(/[x×]/i).map(Number);return p.length===2&&p.every(Number.isFinite)?p:[0,0];}
+function buildWeeks(){
+ const map=new Map();
+ matches().forEach(m=>{const dt=matchDate(m);if(!dt)return;const s=wkStart(dt),k=isoD(s);
+  if(!map.has(k))map.set(k,{key:k,start:s,end:addDays(s,6),games:[]});map.get(k).games.push({...m,_dt:dt});});
+ const cur=mondayISO();
+ if(!map.has(cur)){const s=wkStart(new Date());map.set(cur,{key:cur,start:s,end:addDays(s,6),games:[]});}
+ return [...map.values()].sort((a,b)=>b.key.localeCompare(a.key));
+}
+function weekStats(w,posNow){
+ const P={},pairs={},perDay={};
+ const get=(id,nm)=>P[id]||(P[id]={id:String(id),nome:nm,j:0,v:0,d:0,pts:0,gp:0,gc:0,seq:0,best:0});
+ let totG=0,close=0,blow=0,pts=0,tight=null,big=null,zebra=null;
+ w.games.slice().sort((a,b)=>idn(a)-idn(b)).forEach(m=>{
+  const [a,b]=gamesOf(m),df=Math.abs(a-b),W=get(m.vencedorId,m.vencedor),L=get(m.perdedorId,m.perdedor);
+  W.j++;W.v++;W.pts+=num(m.ptsGanhos);W.gp+=a;W.gc+=b;W.seq++;W.best=Math.max(W.best,W.seq);
+  L.j++;L.d++;L.pts+=num(m.ptsPerdidos);L.gp+=b;L.gc+=a;L.seq=0;
+  totG+=a+b;pts+=num(m.ptsGanhos);
+  if(df<=1&&a+b>0){close++;if(!tight||a+b>=tight.t)tight={m,t:a+b};}
+  if(df>=4){blow++;if(!big||df>big.df)big={m,df};}
+  const gap=(posNow.get(String(m.vencedorId))||0)-(posNow.get(String(m.perdedorId))||0);
+  if(gap>=5&&posNow.get(String(m.perdedorId))&&(!zebra||gap>zebra.gap))zebra={m,gap};
+  const k=[m.vencedorId,m.perdedorId].map(String).sort().join('-');
+  (pairs[k]=pairs[k]||{n:0,a:m.vencedor,b:m.perdedor,sc:[]}).n++;pairs[k].sc.push(m.placar);
+  const dk=dayKey(m._dt);perDay[dk]=(perDay[dk]||0)+1;
+ });
+ const rows=Object.values(P).sort((a,b)=>b.pts-a.pts||(b.gp-b.gc)-(a.gp-a.gc)||b.v-a.v||a.nome.localeCompare(b.nome,'pt-BR'));
+ const champ=rows[0]&&rows[0].pts>0?rows[0]:null;
+ const active=rows.slice().sort((a,b)=>b.j-a.j||b.pts-a.pts)[0];
+ const streak=rows.slice().sort((a,b)=>b.best-a.best)[0];
+ const worst=rows.slice().sort((a,b)=>a.pts-b.pts)[0];
+ const rival=Object.values(pairs).sort((a,b)=>b.n-a.n)[0];
+ return {rows,champ,active,streak,worst,rival,tight,big,zebra,totG,close,blow,pts,perDay,
+  invictos:rows.filter(r=>r.j>=2&&r.d===0)};
+}
+function wkMatchHTML(m,posNow){
+ const [a,b]=gamesOf(m),df=Math.abs(a-b),me=myId(),W=String(m.vencedorId),L=String(m.perdedorId);
+ const mine=me&&(me===W||me===L),isNew=diff&&diff.matches&&diff.matches.has(mkey(m));
+ const gap=(posNow.get(W)||0)-(posNow.get(L)||0);
+ const tags=(df<=1&&a+b>0?'<span class="wk-tag t-close">🔥 apertado</span>':'')+(df>=4?'<span class="wk-tag t-blow">💥 goleada</span>':'')+(gap>=5&&posNow.get(L)?'<span class="wk-tag t-zebra">🎯 zebra</span>':'')+(isNew?'<span class="tag-new">NOVO</span>':'');
+ return `<div class="match${mine?' mine':''}${isNew?' new':''}"><span class="match-id">${esc(m.idJogo||'—')}</span><div class="match-names">${me===W?'⭐ ':''}<b>${esc(m.vencedor)}</b> venceu ${me===L?'⭐ ':''}${esc(m.perdedor)}${tags}<div class="muted small">${esc(m.vencedor)} <span class="wk-pos">+${num(m.ptsGanhos)}</span> · ${esc(m.perdedor)} <span class="wk-neg">${num(m.ptsPerdidos)}</span> pts</div></div><span class="score">${esc(m.placar||'—')}</span></div>`;
+}
+function weekHead(w,open,S){
+ const cur=mondayISO(),isCur=w.key===cur,n=w.games.length;
+ let sub;
+ if(open){const hoje=new Date(),dias=Math.round((w.end-new Date(hoje.getFullYear(),hoje.getMonth(),hoje.getDate()))/864e5);
+  sub=isCur?(dias>0?`Faltam ${dias} ${dias>1?'dias':'dia'} para fechar a semana`:'Último dia da semana'):'Semana encerrada';}
+ else sub=n?`${n} ${n>1?'jogos':'jogo'} · ${S.rows.length} jogadores${S.champ?` · 🏆 ${esc(S.champ.nome)} +${S.champ.pts}`:''}`:'Sem jogos ainda';
+ return `<button class="${open?'wk-head':'wk-row'}" data-wk="${w.key}" aria-expanded="${open}"><div><b>📆 ${rangeTxt(w.start,w.end)}</b>${isCur?'<span class="wk-cur">Atual</span>':''}<span class="wk-sub">${sub}</span></div><span class="chev">${open?'▴':'▾'}</span></button>`;
+}
+function weekDetail(w,idx,weeks,posNow){
+ const isCur=w.key===mondayISO(),n=w.games.length,S=weekStats(w,posNow),head=weekHead(w,true,S);
+ if(!n)return `<div class="wk-item card wk-open" id="wk-${w.key}">${head}<div class="empty">Nenhum jogo registrado nesta semana ainda. Bora marcar o primeiro? 🎾</div></div>`;
+ const prev=weeks.slice(idx+1).find(x=>x.games.length),delta=(!isCur&&prev)?n-prev.games.length:null;
+ const ativos=sortedPlayers().filter(x=>x.status!=='abandonou');
+ const mt=(t,v,sub)=>`<div class="metric"><span>${t}</span><b>${v}</b>${sub?`<span>${sub}</span>`:''}</div>`;
+ const row=(l,r)=>`<div class="mes-row"><span>${l}</span><b>${r}</b></div>`;
+ const grid=mt('Jogos',n,delta==null?'':(delta>0?'▲ '+delta:delta<0?'▼ '+Math.abs(delta):'= igual')+' vs anterior')
+  +mt('Jogadores',S.rows.length,'de '+ativos.length+' ativos')
+  +mt('Games',S.totG,'média '+(S.totG/n).toFixed(1)+'/jogo')
+  +mt('Pts distribuídos','+'+S.pts)
+  +mt('Apertados',S.close,'diferença ≤ 1')
+  +mt('Goleadas',S.blow,'diferença ≥ 4');
+ const mm=x=>`${esc(x.m.vencedor)} <small>${esc(x.m.placar)}</small> ${esc(x.m.perdedor)}`;
+ const hl=[
+  S.champ&&row('🏆 Campeão da semana',`${esc(S.champ.nome)} +${S.champ.pts}`),
+  S.active&&row('🏃 Mais ativo',`${esc(S.active.nome)} · ${S.active.j} jogos`),
+  S.streak&&S.streak.best>=3&&row('🔥 Maior sequência',`${esc(S.streak.nome)} · ${S.streak.best} vitórias`),
+  S.invictos.length&&row('🧱 Invictos',S.invictos.map(r=>esc(r.nome)+' ('+r.v+'V)').join(', ')),
+  S.big&&row('💥 Maior goleada',mm(S.big)),
+  S.tight&&row('😬 Jogo mais apertado',mm(S.tight)),
+  S.zebra&&row('🎯 Maior zebra',`${esc(S.zebra.m.vencedor)} (${posNow.get(String(S.zebra.m.vencedorId))}º) bateu ${esc(S.zebra.m.perdedor)} (${posNow.get(String(S.zebra.m.perdedorId))}º)`),
+  S.rival&&S.rival.n>=2&&row('🔁 Maior rivalidade',`${esc(S.rival.a)} × ${esc(S.rival.b)} · ${S.rival.n} jogos (${S.rival.sc.map(esc).join(', ')})`),
+  S.worst&&S.worst.pts<0&&row('😓 Semana difícil',`${esc(S.worst.nome)} ${S.worst.pts}`)
+ ].filter(Boolean).join('');
+ const tbl=`<div class="table-wrap"><table><thead><tr><th>#</th><th>Jogador</th><th>J</th><th>V-D</th><th>Games</th><th>Pts</th></tr></thead><tbody>${S.rows.map((r,i)=>`<tr><td>${posBadge(i+1)}</td><td class="pl-name"><button class="player-link" data-player="${esc(r.id)}">${String(r.id)===myId()?'⭐ ':''}${esc(r.nome)}</button></td><td>${r.j}</td><td>${r.v}-${r.d}</td><td>${r.gp}-${r.gc}</td><td><b class="${r.pts>0?'wk-pos':r.pts<0?'wk-neg':''}">${r.pts>0?'+':''}${r.pts}</b></td></tr>`).join('')}</tbody></table></div>`;
+ const today=dayKey(new Date()),max=Math.max(1,...Object.values(S.perDay));
+ const strip=[0,1,2,3,4,5,6].map(i=>{const d=addDays(w.start,i),k=dayKey(d),c=S.perDay[k]||0;
+  return `<button class="wk-day${wkDay===k?' on':''}${c?'':' off'}${k===today?' today':''}" data-wkday="${k}"${c?'':' disabled'} aria-label="${DIAS_L[d.getDay()]} ${k}: ${c} jogos"><span class="muted small">${DIAS_C[d.getDay()]}</span><span class="barbox"><i class="bar" style="height:${c?6+Math.round(c/max*34):3}px"></i></span><b>${c}</b><span class="muted small">${pad2(d.getDate())}</span></button>`;}).join('');
+ const opts=S.rows.slice().sort((a,b)=>a.nome.localeCompare(b.nome,'pt-BR')).map(r=>`<option value="${esc(r.id)}"${wkPlayer===r.id?' selected':''}>${esc(r.nome)}</option>`).join('');
+ const list=w.games.filter(m=>(!wkDay||dayKey(m._dt)===wkDay)&&(!wkPlayer||String(m.vencedorId)===wkPlayer||String(m.perdedorId)===wkPlayer));
+ const groups=new Map();list.forEach(m=>{const k=dayKey(m._dt);(groups.get(k)||groups.set(k,{dt:m._dt,l:[]}).get(k)).l.push(m);});
+ const days=[...groups.entries()].sort((a,b)=>b[1].dt-a[1].dt).map(([k,g])=>`<div class="wk-dayh"><span>${DIAS_L[g.dt.getDay()]}, ${k}${k===today?' · hoje':''}</span><span class="muted small">${g.l.length} ${g.l.length>1?'jogos':'jogo'}</span></div>${g.l.map(m=>wkMatchHTML(m,posNow)).join('')}`).join('')||'<div class="empty">Nenhum jogo com esse filtro.</div>';
+ const jogaram=new Set(S.rows.map(r=>r.id)),nao=isCur?ativos.filter(p=>!jogaram.has(String(p.id))):[];
+ return `<div class="wk-item card wk-open" id="wk-${w.key}">${head}
+ <div class="wk-grid">${grid}</div>
+ ${hl?`<h3 class="wk-h">Destaques da semana</h3>${hl}`:''}
+ <h3 class="wk-h">Ranking da semana</h3>${tbl}<div class="muted small">Pts = pontos ganhos/perdidos nos jogos da semana · Games = ganhos-perdidos. Toque no nome para ver o perfil.</div>
+ <h3 class="wk-h">Jogos por dia</h3><div class="wk-days">${strip}</div>
+ <div class="form-row" style="margin-top:8px"><select class="field" id="wkPlayer" aria-label="Filtrar por jogador"><option value="">Todos os jogadores</option>${opts}</select><button class="btn" data-wkshare="${w.key}">📤 Compartilhar semana</button></div>
+ ${(wkDay||wkPlayer)?`<div class="muted small">Filtro ativo · ${list.length} de ${n} jogos · <button class="player-link" data-wkday="${wkDay}" ${wkDay?'':'hidden'}>limpar dia</button></div>`:''}
+ <h3 class="wk-h">Todos os jogos (${list.length})</h3>${days}
+ ${nao.length?`<details class="wk-det"><summary>😴 Ainda não jogaram nesta semana (${nao.length})</summary><div class="chips">${nao.map(p=>`<span class="chip">${esc(p.nome)}</span>`).join('')}</div></details>`:''}</div>`;
+}
+function renderWeek(){
+ const el=$('weekView');if(!el||!database)return;
+ const weeks=buildWeeks();
+ if(!weeks.some(w=>w.games.length)){el.innerHTML='<div class="empty">Nenhum jogo registrado ainda.</div>';return;}
+ if(wkOpen===undefined||(wkOpen&&!weeks.some(w=>w.key===wkOpen))){
+  const c=weeks.find(w=>w.key===mondayISO()&&w.games.length)||weeks.find(w=>w.games.length);wkOpen=c.key;wkDay='';wkPlayer='';}
+ const posNow=new Map(sortedPlayers().map((p,i)=>[String(p.id),i+1]));
+ const nSem=weeks.filter(w=>w.games.length).length;
+ el.innerHTML=`<article class="card"><div class="card-head"><h2>📆 Jogos por semana</h2><span class="muted small">${nSem} semanas · ${matches().length} jogos</span></div><div class="muted small" style="margin-bottom:8px">Toque numa data para abrir os jogos daquela semana.</div>${weeks.map((w,i)=>w.key===wkOpen?weekDetail(w,i,weeks,posNow):`<div class="wk-item" id="wk-${w.key}">${weekHead(w,false,weekStats(w,posNow))}</div>`).join('')}</article>`;
+}
+function shareWeek(k){
+ const w=buildWeeks().find(x=>x.key===k);if(!w)return;
+ const posNow=new Map(sortedPlayers().map((p,i)=>[String(p.id),i+1])),S=weekStats(w,posNow);
+ const t=`🎾 Ranking Zona Sul · Semana ${rangeTxt(w.start,w.end)}\n${w.games.length} jogos · ${S.rows.length} jogadores\n`+(S.champ?`🏆 Campeão: ${S.champ.nome} (+${S.champ.pts} pts)\n`:'')+S.rows.slice(0,5).map((r,i)=>`${i+1}º ${r.nome} · ${r.v}V-${r.d}D (${r.pts>0?'+':''}${r.pts})`).join('\n');
+ if(navigator.share)navigator.share({text:t}).catch(()=>{});else window.open('https://wa.me/?text='+encodeURIComponent(t),'_blank');
+}
+document.addEventListener('click',e=>{
+ const w=e.target.closest('[data-wk]');
+ if(w){const k=w.dataset.wk;wkOpen=wkOpen===k?'':k;wkDay='';wkPlayer='';renderWeek();
+  if(wkOpen)setTimeout(()=>{const x=$('wk-'+k);x&&x.scrollIntoView({block:'start',behavior:'smooth'});},30);return;}
+ const d=e.target.closest('[data-wkday]');if(d&&!d.disabled){wkDay=wkDay===d.dataset.wkday?'':d.dataset.wkday;renderWeek();return;}
+ const s=e.target.closest('[data-wkshare]');if(s)shareWeek(s.dataset.wkshare);
+});
+document.addEventListener('change',e=>{if(e.target.id==='wkPlayer'){wkPlayer=e.target.value;renderWeek();}});
 
 loadData();
 </script>
