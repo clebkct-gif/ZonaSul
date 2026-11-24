@@ -1,6 +1,6 @@
 {
   "v": "2026.1",
-  "dataExportacao": "2026-11-24T13:40:25.539Z",
+  "dataExportacao": "2026-11-24T13:51:46.550Z",
   "jogadores": [
     {
       "id": 1794368145937,
@@ -268,7 +268,7 @@
     },
     {
       "id": 1794368387371,
-      "nome": "Ciaero",
+      "nome": "Cicero",
       "jogos": 0,
       "vitorias": 0,
       "ptsGanhos": 0,
@@ -340,7 +340,7 @@
     },
     {
       "id": 1794368433954,
-      "nome": "Geisa",
+      "nome": "Geísa",
       "jogos": 0,
       "vitorias": 0,
       "ptsGanhos": 0,
