@@ -1,6 +1,6 @@
 {
   "v": "2026.1",
-  "dataExportacao": "2026-11-25T12:05:32.438Z",
+  "dataExportacao": "2026-11-25T12:15:03.323Z",
   "jogadores": [
     {
       "id": 1794368145937,
@@ -354,7 +354,7 @@
   "historicoJogos": [
     {
       "idJogo": "#48",
-      "data": "25/11",
+      "data": "24/11",
       "vencedor": "Abraão",
       "vencedorId": 1794368145937,
       "ptsGanhos": 50,
@@ -366,7 +366,7 @@
     },
     {
       "idJogo": "#47",
-      "data": "25/11",
+      "data": "24/11",
       "vencedor": "Gabriel",
       "vencedorId": 1794368177983,
       "ptsGanhos": 30,
