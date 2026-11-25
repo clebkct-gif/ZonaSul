@@ -1,16 +1,16 @@
 {
   "v": "2026.1",
-  "dataExportacao": "2026-11-24T13:51:46.550Z",
+  "dataExportacao": "2026-11-25T12:05:32.438Z",
   "jogadores": [
     {
       "id": 1794368145937,
       "nome": "Abraão",
-      "jogos": 9,
-      "vitorias": 5,
-      "ptsGanhos": 29,
-      "ptsPerdidos": 25,
-      "pontosTotais": 1155,
-      "variacaoSemana": 0,
+      "jogos": 10,
+      "vitorias": 6,
+      "ptsGanhos": 35,
+      "ptsPerdidos": 28,
+      "pontosTotais": 1205,
+      "variacaoSemana": 50,
       "status": "ativo",
       "posAnt": 1
     },
@@ -29,24 +29,24 @@
     {
       "id": 1794368177983,
       "nome": "Gabriel",
-      "jogos": 11,
-      "vitorias": 8,
-      "ptsGanhos": 54,
-      "ptsPerdidos": 36,
-      "pontosTotais": 1065,
-      "variacaoSemana": 0,
+      "jogos": 13,
+      "vitorias": 9,
+      "ptsGanhos": 61,
+      "ptsPerdidos": 44,
+      "pontosTotais": 1085,
+      "variacaoSemana": 20,
       "status": "ativo",
       "posAnt": 3
     },
     {
       "id": 1794368160428,
       "nome": "Wallace",
-      "jogos": 5,
+      "jogos": 6,
       "vitorias": 3,
-      "ptsGanhos": 20,
-      "ptsPerdidos": 20,
-      "pontosTotais": 945,
-      "variacaoSemana": 50,
+      "ptsGanhos": 22,
+      "ptsPerdidos": 24,
+      "pontosTotais": 940,
+      "variacaoSemana": 45,
       "status": "ativo",
       "posAnt": 4
     },
@@ -352,6 +352,30 @@
     }
   ],
   "historicoJogos": [
+    {
+      "idJogo": "#48",
+      "data": "25/11",
+      "vencedor": "Abraão",
+      "vencedorId": 1794368145937,
+      "ptsGanhos": 50,
+      "perdedor": "Gabriel",
+      "perdedorId": 1794368177983,
+      "ptsPerdidos": -10,
+      "placar": "6x3",
+      "isSemanaAtual": true
+    },
+    {
+      "idJogo": "#47",
+      "data": "25/11",
+      "vencedor": "Gabriel",
+      "vencedorId": 1794368177983,
+      "ptsGanhos": 30,
+      "perdedor": "Wallace",
+      "perdedorId": 1794368160428,
+      "ptsPerdidos": -5,
+      "placar": "4x2",
+      "isSemanaAtual": true
+    },
     {
       "idJogo": "#46",
       "data": "23/11",
@@ -905,7 +929,7 @@
       "isSemanaAtual": false
     }
   ],
-  "contadorJogos": 47,
+  "contadorJogos": 49,
   "semanaRef": "2026-11-23",
   "temporada": "2026",
   "regras": {
