@@ -1,6 +1,6 @@
 {
   "v": "2026.1",
-  "dataExportacao": "2026-11-25T12:15:03.323Z",
+  "dataExportacao": "2026-11-26T03:28:22.367Z",
   "jogadores": [
     {
       "id": 1794368145937,
@@ -41,12 +41,12 @@
     {
       "id": 1794368160428,
       "nome": "Wallace",
-      "jogos": 6,
-      "vitorias": 3,
-      "ptsGanhos": 22,
-      "ptsPerdidos": 24,
-      "pontosTotais": 940,
-      "variacaoSemana": 45,
+      "jogos": 7,
+      "vitorias": 4,
+      "ptsGanhos": 28,
+      "ptsPerdidos": 27,
+      "pontosTotais": 990,
+      "variacaoSemana": 95,
       "status": "ativo",
       "posAnt": 4
     },
@@ -173,12 +173,12 @@
     {
       "id": 1794368259321,
       "nome": "Mateus",
-      "jogos": 6,
+      "jogos": 7,
       "vitorias": 1,
-      "ptsGanhos": 20,
-      "ptsPerdidos": 28,
-      "pontosTotais": 170,
-      "variacaoSemana": -10,
+      "ptsGanhos": 23,
+      "ptsPerdidos": 34,
+      "pontosTotais": 160,
+      "variacaoSemana": -20,
       "status": "ativo",
       "posAnt": 14
     },
@@ -352,6 +352,18 @@
     }
   ],
   "historicoJogos": [
+    {
+      "idJogo": "#49",
+      "data": "25/11",
+      "vencedor": "Wallace",
+      "vencedorId": 1794368160428,
+      "ptsGanhos": 50,
+      "perdedor": "Mateus",
+      "perdedorId": 1794368259321,
+      "ptsPerdidos": -10,
+      "placar": "6x3",
+      "isSemanaAtual": true
+    },
     {
       "idJogo": "#48",
       "data": "24/11",
@@ -929,7 +941,7 @@
       "isSemanaAtual": false
     }
   ],
-  "contadorJogos": 49,
+  "contadorJogos": 50,
   "semanaRef": "2026-11-23",
   "temporada": "2026",
   "regras": {
