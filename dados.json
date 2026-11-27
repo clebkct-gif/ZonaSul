@@ -1,6 +1,6 @@
 {
   "v": "2026.1",
-  "dataExportacao": "2026-11-26T03:28:22.367Z",
+  "dataExportacao": "2026-11-27T15:44:16.906Z",
   "jogadores": [
     {
       "id": 1794368145937,
@@ -17,12 +17,12 @@
     {
       "id": 1794368153255,
       "nome": "Edian",
-      "jogos": 7,
-      "vitorias": 5,
-      "ptsGanhos": 29,
-      "ptsPerdidos": 19,
-      "pontosTotais": 1100,
-      "variacaoSemana": 40,
+      "jogos": 8,
+      "vitorias": 6,
+      "ptsGanhos": 35,
+      "ptsPerdidos": 23,
+      "pontosTotais": 1150,
+      "variacaoSemana": 90,
       "status": "ativo",
       "posAnt": 2
     },
@@ -255,18 +255,6 @@
       "posAnt": 22
     },
     {
-      "id": 1794368414765,
-      "nome": "Paulinho",
-      "jogos": 4,
-      "vitorias": 1,
-      "ptsGanhos": 10,
-      "ptsPerdidos": 13,
-      "pontosTotais": 55,
-      "variacaoSemana": 0,
-      "status": "ativo",
-      "posAnt": 23
-    },
-    {
       "id": 1794368387371,
       "nome": "Cicero",
       "jogos": 0,
@@ -289,6 +277,18 @@
       "variacaoSemana": 0,
       "status": "ativo",
       "posAnt": 25
+    },
+    {
+      "id": 1794368414765,
+      "nome": "Paulinho",
+      "jogos": 5,
+      "vitorias": 1,
+      "ptsGanhos": 14,
+      "ptsPerdidos": 19,
+      "pontosTotais": 45,
+      "variacaoSemana": -10,
+      "status": "ativo",
+      "posAnt": 23
     },
     {
       "id": 1794368311981,
@@ -352,6 +352,18 @@
     }
   ],
   "historicoJogos": [
+    {
+      "idJogo": "#50",
+      "data": "27/11",
+      "vencedor": "Edian",
+      "vencedorId": 1794368153255,
+      "ptsGanhos": 50,
+      "perdedor": "Paulinho",
+      "perdedorId": 1794368414765,
+      "ptsPerdidos": -10,
+      "placar": "6x4",
+      "isSemanaAtual": true
+    },
     {
       "idJogo": "#49",
       "data": "25/11",
@@ -941,7 +953,7 @@
       "isSemanaAtual": false
     }
   ],
-  "contadorJogos": 50,
+  "contadorJogos": 51,
   "semanaRef": "2026-11-23",
   "temporada": "2026",
   "regras": {
@@ -988,9 +1000,9 @@
     1794368306813,
     1794368340600,
     1794368344549,
-    1794368414765,
     1794368387371,
     1794368392875,
+    1794368414765,
     1794368311981,
     1794368438812,
     1794368422237,
