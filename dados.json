@@ -1,6 +1,6 @@
 {
   "v": "2026.1",
-  "dataExportacao": "2026-11-27T15:44:16.906Z",
+  "dataExportacao": "2026-11-28T03:34:31.286Z",
   "jogadores": [
     {
       "id": 1794368145937,
@@ -41,12 +41,12 @@
     {
       "id": 1794368160428,
       "nome": "Wallace",
-      "jogos": 7,
-      "vitorias": 4,
-      "ptsGanhos": 28,
-      "ptsPerdidos": 27,
-      "pontosTotais": 990,
-      "variacaoSemana": 95,
+      "jogos": 8,
+      "vitorias": 5,
+      "ptsGanhos": 34,
+      "ptsPerdidos": 30,
+      "pontosTotais": 1040,
+      "variacaoSemana": 145,
       "status": "ativo",
       "posAnt": 4
     },
@@ -279,18 +279,6 @@
       "posAnt": 25
     },
     {
-      "id": 1794368414765,
-      "nome": "Paulinho",
-      "jogos": 5,
-      "vitorias": 1,
-      "ptsGanhos": 14,
-      "ptsPerdidos": 19,
-      "pontosTotais": 45,
-      "variacaoSemana": -10,
-      "status": "ativo",
-      "posAnt": 23
-    },
-    {
       "id": 1794368311981,
       "nome": "Melissa",
       "jogos": 4,
@@ -301,6 +289,18 @@
       "variacaoSemana": 0,
       "status": "ativo",
       "posAnt": 21
+    },
+    {
+      "id": 1794368414765,
+      "nome": "Paulinho",
+      "jogos": 6,
+      "vitorias": 1,
+      "ptsGanhos": 17,
+      "ptsPerdidos": 25,
+      "pontosTotais": 35,
+      "variacaoSemana": -20,
+      "status": "ativo",
+      "posAnt": 23
     },
     {
       "id": 1794368438812,
@@ -352,6 +352,18 @@
     }
   ],
   "historicoJogos": [
+    {
+      "idJogo": "#51",
+      "data": "27/11",
+      "vencedor": "Wallace",
+      "vencedorId": 1794368160428,
+      "ptsGanhos": 50,
+      "perdedor": "Paulinho",
+      "perdedorId": 1794368414765,
+      "ptsPerdidos": -10,
+      "placar": "6x3",
+      "isSemanaAtual": true
+    },
     {
       "idJogo": "#50",
       "data": "27/11",
@@ -953,7 +965,7 @@
       "isSemanaAtual": false
     }
   ],
-  "contadorJogos": 51,
+  "contadorJogos": 52,
   "semanaRef": "2026-11-23",
   "temporada": "2026",
   "regras": {
@@ -1002,8 +1014,8 @@
     1794368344549,
     1794368387371,
     1794368392875,
-    1794368414765,
     1794368311981,
+    1794368414765,
     1794368438812,
     1794368422237,
     1794368427648,
